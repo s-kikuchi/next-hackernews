@@ -8,9 +8,9 @@ interface Props extends React.Attributes {
 
 }
 
-const HeadNav: React.FC = () => {
+const Header: React.FC = () => {
   return (
-    <Header>
+    <Wrapper>
       <Nav>
         <Link href="/"><A>Logo</A></Link>
         <Link href="/"><A>Top</A></Link>
@@ -22,13 +22,13 @@ const HeadNav: React.FC = () => {
           Git Hub
         </a>
       </Nav>
-    </Header>
+    </Wrapper>
   )
 };
 
-export default HeadNav;
+export default Header;
 
-const Header = styled.header`
+const Wrapper = styled.header`
   background-color: #ff6600;
   position: fixed;
   z-index: 999;
