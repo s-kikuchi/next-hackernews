@@ -2,28 +2,46 @@ import * as React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { TABLET_MEDIA, MOBILE_MEDIA } from "@/constants/mediaquery";
-
-interface Props extends React.Attributes {
-
-}
+import { TABLET_MEDIA, MOBILE_MEDIA } from '@/constants/mediaquery';
 
 const Header: React.FC = () => {
   return (
     <Wrapper>
       <Nav>
-        <Link href="/"><A>Logo</A></Link>
-        <Link href="/"><A>Top</A></Link>
-        <Link href="/"><A>New</A></Link>
-        <Link href="/"><A>Show</A></Link>
-        <Link href="/"><A>Ask</A></Link>
-        <Link href="/"><A>Job</A></Link>
-        <a style={{ color: "#fff", fontWeight: 300, fontSize: "1em", margin: 0, float: "right", lineHeight: "24px" }} target="_blank">
+        <Link href="/">
+          <A>Logo</A>
+        </Link>
+        <Link href="/">
+          <A>Top</A>
+        </Link>
+        <Link href="/">
+          <A>New</A>
+        </Link>
+        <Link href="/">
+          <A>Show</A>
+        </Link>
+        <Link href="/">
+          <A>Ask</A>
+        </Link>
+        <Link href="/">
+          <A>Job</A>
+        </Link>
+        <a
+          style={{
+            color: '#fff',
+            fontWeight: 300,
+            fontSize: '1em',
+            margin: 0,
+            float: 'right',
+            lineHeight: '24px',
+          }}
+          target="_blank"
+        >
           Git Hub
         </a>
       </Nav>
     </Wrapper>
-  )
+  );
 };
 
 export default Header;
@@ -52,13 +70,13 @@ const Nav = styled.nav`
 `;
 
 const A = styled.a`
-  color: rgba(255, 255, 255, .8);
-  transition: color .15s ease;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.15s ease;
   line-height: 24px;
   display: inline-block;
   vertical-align: middle;
   font-weight: 300;
-  letter-spacing: .075em;
+  letter-spacing: 0.075em;
   margin-right: 1.8em;
   cursor: pointer;
   &:hover {

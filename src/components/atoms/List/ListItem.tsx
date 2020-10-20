@@ -5,17 +5,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  children?: React.ReactNode,
+  children?: React.ReactNode;
 }
 
-const ListItem = (props: Props) => {
+const ListItem = (props: Props): React.ReactElement => {
   const { children } = props;
 
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  )
+  return <Wrapper>{children}</Wrapper>;
 };
 
 const Wrapper = styled.li`
