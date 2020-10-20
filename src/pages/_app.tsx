@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps, Container } from 'next/app';
 
-import Header from '@/components/organisms/Header';
+import Header from '@/components/molecules/Header';
 import '@@/styles/globals.css';
 
 const App = ({ Component, pageProps }: AppProps): any => {
@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }: AppProps): any => {
       <Header />
       <Component {...pageProps} />
     </Container>
-  )
+  );
 };
 
 export default App;

@@ -4,7 +4,7 @@ import Header from './Header';
 export default {
   title: 'Organisms / Header',
   component: Header,
-  includeStories: ['HeaderSample']
-}
+  includeStories: ['HeaderSample'],
+};
 
-export const HeaderSample = () => <Header />;
+export const HeaderSample = (): React.ReactElement => <Header />;
