@@ -8,7 +8,9 @@
     "start": "next start",
     "prettier:quick": "pretty-quick --staged",
     "lint": "eslint src/** --ext .ts,.tsx",
-    "lint:fix": "eslint src/** --ext .ts,.tsx --fix"
+    "lint:fix": "eslint src/** --ext .ts,.tsx --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "9.5.5",
@@ -17,17 +19,30 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.0.26",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-knobs": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/addon-storyshots": "^6.0.26",
+    "@storybook/addons": "^6.0.26",
+    "@storybook/react": "^6.0.26",
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.52",
     "@types/react-dom": "^16.9.8",
+    "@types/storybook__addon-info": "^5.2.3",
+    "@types/storybook__addon-storyshots": "^5.3.1",
+    "@types/storybook__react": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "babel-plugin-styled-components": "^1.11.1",
+    "babel-preset-react-app": "^9.1.2",
     "eslint": "^7.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.4",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
+    "require-context.macro": "^1.2.2",
     "typescript": "^4.0.3"
   }
 }
