@@ -1,61 +1,54 @@
-import React, { FC } from 'react';
-import Head from 'next/head';
-import styles from '@/../styles/Home.module.css';
+import * as React from 'react';
+import styled from 'styled-components';
 
-const Home: FC = () => {
+import { Article } from '@/components/organisms/Article';
+import { LayoutList } from '@/components/atoms/List';
+
+const Top: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/master/examples" className={styles.card}>
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
-        </div>
+    <>
+      <main style={{ width: "800px", margin: "0 auto", position: "relative" }}>
+        <NewsView>
+          <NewsListNav>
+            &lt; prev / more &gt;
+          </NewsListNav>
+        </NewsView>
+        <NewsList>
+          <LayoutList>
+            <Article />
+            <Article />
+            <Article />
+          </LayoutList>
+        </NewsList>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+      <footer>
+        Footer
       </footer>
-    </div>
+    </>
   );
 };
 
-export default Home;
+const NewsView = styled.div`
+`;
+
+const NewsListNav = styled.div`
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 15px 30px;
+  position: fixed;
+  text-align: center;
+  top: 55px;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+`;
+
+const NewsList = styled.div`
+  width: 100%;
+  display: block;
+  position: relative;
+  transition: all .5s cubic-bezier(.55, 0, .1, 1);
+`;
+
+export default Top;

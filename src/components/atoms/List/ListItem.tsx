@@ -8,18 +8,14 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const ListItem = (props: Props): React.ReactElement => {
-  const { children } = props;
-
-  return <Wrapper>{children}</Wrapper>;
+const ListItem = ({ children, ...props}: Props): React.ReactElement => {
+  return <Wrapper { ...props }>{children}</Wrapper>;
 };
 
 const Wrapper = styled.li`
   background-color: #fff;
-  padding: 20px 30px 20px 80px;
+  padding: 20px;
   border-bottom: 1px solid #eee;
-  line-height: 20px;
-  position: relative;
 `;
 
 export default ListItem;
