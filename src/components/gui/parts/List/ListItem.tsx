@@ -8,8 +8,8 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const ListItem = ({ children, ...props}: Props): React.ReactElement => {
-  return <Wrapper { ...props }>{children}</Wrapper>;
+const ListItem = ({ children, ...props }: Props): React.ReactElement => {
+  return <Wrapper {...props}>{children}</Wrapper>;
 };
 
 const Wrapper = styled.li`

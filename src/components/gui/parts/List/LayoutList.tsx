@@ -18,7 +18,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const LayoutList = (props: Props): React.ReactElement => {
+const LayoutList: React.FC<Props> = (props): React.ReactElement => {
   const { listStyleType, padding, margin, children } = props;
 
   return <Wrapper {...{ listStyleType, padding, margin }}>{children}</Wrapper>;
