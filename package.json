@@ -1,5 +1,5 @@
 {
-  "name": "next-hacker-news",
+  "name": "next-hackernews",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "firebase": "^7.24.0",
     "next": "9.5.5",
     "react": "16.14.0",
     "react-dom": "16.14.0",
+    "recoil": "0.0.13",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
