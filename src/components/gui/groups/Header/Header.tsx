@@ -11,19 +11,19 @@ const Header: React.FC = () => {
         <Link href="/">
           <A>Logo</A>
         </Link>
-        <Link href="/">
+        <Link href="/top">
           <A>Top</A>
         </Link>
-        <Link href="/">
+        <Link href="/new">
           <A>New</A>
         </Link>
-        <Link href="/">
+        <Link href="/show">
           <A>Show</A>
         </Link>
-        <Link href="/">
+        <Link href="/ask">
           <A>Ask</A>
         </Link>
-        <Link href="/">
+        <Link href="/job">
           <A>Job</A>
         </Link>
         <a
@@ -36,6 +36,7 @@ const Header: React.FC = () => {
             lineHeight: '24px',
           }}
           target="_blank"
+          href="https://github.com/s-kikuchi/next-hackernews"
         >
           Git Hub
         </a>
