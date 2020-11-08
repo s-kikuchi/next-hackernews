@@ -8,7 +8,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const ListItem = ({ children, ...props }: Props): React.ReactElement => {
+const ListItemLayout = ({ children, ...props }: Props): React.ReactElement => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
 
@@ -18,4 +18,4 @@ const Wrapper = styled.li`
   border-bottom: 1px solid #eee;
 `;
 
-export default ListItem;
+export default ListItemLayout;
