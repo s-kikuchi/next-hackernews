@@ -3,7 +3,7 @@
  */
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { PRIMARY } from '@/constants/color';
+import { PRIMARY } from '@/utils/constants';
 
 const Spinner = (): React.ReactElement => {
   return (

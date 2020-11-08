@@ -18,7 +18,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const LayoutList = (props: Props): React.ReactElement => {
+const ListLayout: React.FC<Props> = (props): React.ReactElement => {
   const { listStyleType, padding, margin, children } = props;
 
   return <Wrapper {...{ listStyleType, padding, margin }}>{children}</Wrapper>;
@@ -30,4 +30,4 @@ const Wrapper = styled.ul`
   margin: ${(props: Props) => props.margin || 0};
 `;
 
-export default LayoutList;
+export default ListLayout;
