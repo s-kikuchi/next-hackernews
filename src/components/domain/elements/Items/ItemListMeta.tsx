@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { timeAgo } from '@/utils/filter';
+import { PRIMARY } from '@/utils/constants';
 
 interface Props {
   by: string,

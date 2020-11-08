@@ -1,25 +1,8 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
 
-import { ListLayout, ListItemLayout } from '@/components/gui/parts/List';
-import { ItemListItem, ItemListScore, ItemListTitle } from '@/components/domain/elements/Items';
+import { ListLayout } from '@/components/gui/parts/List';
+import { ItemListItem } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
-
-/*
-interface Props {
-  item: {
-    url: string,
-    by: string,
-    title: string,
-    id: number,
-    score: number,
-    descendants: number,
-    __lastUpdated: number,
-    time: number
-  };
-}
- */
 
 interface Props {
   items: []
@@ -32,6 +15,7 @@ interface Props {
 const Items: React.FC<Props> = (props): React.ReactElement => {
   const { items } = props;
 
+  // TODO: Apply loading style
   if (!items) {
     return <div>Loading</div>
   }

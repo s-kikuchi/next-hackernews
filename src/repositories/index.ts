@@ -33,6 +33,6 @@ export const fetchItems = (ids: number[]) => {
   return Promise.all(ids.map((id) => fetchItem(id)));
 };
 
-export const fetchUser = (id: number) => {
+export const fetchUser = (id: string | string[]) => {
   return fetch(`user/${id}`);
 };
