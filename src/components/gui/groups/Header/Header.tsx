@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { TABLET_MEDIA, MOBILE_MEDIA } from '@/constants/mediaquery';
+import { TABLET_MEDIA, MOBILE_MEDIA } from '@/utils/constants';
 
 const Header: React.FC = () => {
   return (

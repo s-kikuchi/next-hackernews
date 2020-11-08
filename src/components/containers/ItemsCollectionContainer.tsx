@@ -14,13 +14,9 @@ const ItemsCollectionContainer: React.FC<Props> = (props): React.ReactElement =>
   const items = useRecoilValue(itemsState);
 
   return (
-    <div>
-      {!items
-        ? <div>Loading!!</div>
-        : items.map((item) => <Items key={item.id + item.title} item={item} />)}
-    </div>
+    // @ts-ignore
+    <Items items={items} />
   )
 };
 
 export default ItemsCollectionContainer;
-

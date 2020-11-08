@@ -1,4 +1,4 @@
-import LayoutList from './LayoutList';
-import ListItem from './ListItem';
+import ListLayout from './ListLayout';
+import ListItemLayout from './ListItemLayout';
 
-export { LayoutList, ListItem };
+export { ListLayout, ListItemLayout };
