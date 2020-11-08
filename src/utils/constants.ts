@@ -1,5 +1,5 @@
 // color
-export const PRIMARY = '#FF6600';
+export const PRIMARY = '#000';
 
 // media query
 export const TABLET_MEDIA = '@media screen and (max-width: 860px)';

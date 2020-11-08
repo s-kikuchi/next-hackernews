@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 
 import { ItemsCollectionContainer } from '@/components/containers/';
@@ -7,9 +8,15 @@ const Top: React.FC = () => {
   const type = 'top';
 
   return (
-    <Wrapper>
-      <ItemsCollectionContainer type={type} />
-    </Wrapper>
+    <>
+      <Head>
+        <title>Next HN | Top</title>
+      </Head>
+
+      <Wrapper>
+        <ItemsCollectionContainer type={type} />
+      </Wrapper>
+    </>
   );
 };
 

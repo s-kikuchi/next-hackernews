@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { PRIMARY } from '@/utils/constants';
 
 import { TABLET_MEDIA, MOBILE_MEDIA } from '@/utils/constants';
 
@@ -48,7 +49,7 @@ const Header: React.FC = () => {
 export default Header;
 
 const Wrapper = styled.header`
-  background-color: #ff6600;
+  background-color: ${PRIMARY};
   position: fixed;
   z-index: 999;
   height: 55px;

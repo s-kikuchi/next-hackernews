@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { atom, useRecoilState } from 'recoil';
-import { fetchIdsByType, fetchItems } from '@/repositories/';
+import { atom, useSetRecoilState } from 'recoil';
+import { useRouter } from 'next/router';
+
+import { fetchIdsByType, fetchItems, fetchUser } from '@/repositories/';
+import * as Model from '@/models';
 
 const initialIds: {
   [type: string]: number[]
@@ -20,20 +23,40 @@ export const itemsState = atom({
 });
 
 export const useItems = (type: string): void => {
-  const [items, setItems] = useRecoilState(itemsState);
-  const [ids, setIds] = useRecoilState(idsState);
+  const setItems = useSetRecoilState(itemsState);
+  const setIds = useSetRecoilState(idsState);
 
   React.useEffect(() => {
-    fetchIdsByType(type).then((newIds: number[]) => {
+    fetchIdsByType(type).then((ids: number[]) => {
       setIds((prevState) => {
-        fetchItems(newIds).then((newItems :number[]) => {
-          setItems((prevState) => ([...prevState, ...newItems]));
+        fetchItems(ids).then((items :number[]) => {
+          setItems(items);
         });
         return {
           ...prevState,
-          newIds
+          ids
         }
       });
     });
   }, []);
+};
+
+const initialUser: Model.User | any = { };
+
+export const userState = atom({
+  key: 'userState',
+  default: initialUser
+});
+
+export const useUser = (): void => {
+  // TODO: Separate fetching path parameter
+  const router = useRouter();
+  const id = router.query.id;
+  const setUser = useSetRecoilState(userState);
+
+  React.useEffect(() => {
+    if (router.asPath !== router.route) {
+      fetchUser(id).then(user => setUser(user));
+    }
+  }, [router]);
 };
