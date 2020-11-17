@@ -25,7 +25,7 @@ const Wrapper = styled.main`
   width: 800px;
   margin: 0 auto;
   position: relative;
-  paddingTop: 100px;
+  padding-top: 100px;
 `;
 
 export default Top;

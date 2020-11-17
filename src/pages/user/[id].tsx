@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from 'next/head';
 
 import { useUser } from '@/hooks/';
-import UserDetailContainer from '@/components/containers/UserDetailContainer';
+import { UserDetailContainer } from '@/components/containers';
 
 export default (): React.ReactElement => {
   useUser();
@@ -26,5 +26,5 @@ const Wrapper = styled.main`
   width: 800px;
   margin: 0 auto;
   position: relative;
-  paddingTop: 100px;
+  padding-top: 10px;
 `;
