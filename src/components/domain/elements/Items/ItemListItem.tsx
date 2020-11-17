@@ -21,7 +21,7 @@ const ItemListItem: React.FC<Props> = (props): React.ReactElement => {
     <ListItemLayout>
       <ItemListScore score={item.score} />
       <ItemListTitle id={item.id} title={item.title} url={item.url} />
-      <ItemListMeta by={item.by} time={item.time} />
+      <ItemListMeta id={item.id} by={item.by} time={item.time} type={item.type} descendants={item.descendants} />
     </ListItemLayout>
   );
 };

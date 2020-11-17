@@ -22,6 +22,8 @@ class Item {
   descendants: number;
   by: string;
   __lastUpdated: number;
+  kids: number[];
+  text: string | any;
 
   constructor(data) {
     this.id = data.id;
@@ -33,6 +35,8 @@ class Item {
     this.descendants = data.descendants;
     this.by = data.by;
     this.__lastUpdated = data.__lastUpdated;
+    this.kids = data.kids;
+    this.text = data.text;
   }
 }
 

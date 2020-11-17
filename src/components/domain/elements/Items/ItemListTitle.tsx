@@ -20,7 +20,7 @@ const ItemListTitle: React.FC<Props> = (props): React.ReactElement => {
         <>
           <a href={url} target="_blank" rel="noreferrer">
             {title}
-            <span style={{ fontSize: '.85em', color: '#828282' }}> ({url})</span>
+            {/* <span style={{ fontSize: '.85em', color: '#828282' }}> ({url})</span> */}
           </a>
         </>
         :
