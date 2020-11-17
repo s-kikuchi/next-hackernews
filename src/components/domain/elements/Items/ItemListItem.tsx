@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ListItemLayout } from "@/components/gui/parts/List";
+import { ListItemLayout } from "@/components/layouts";
 import { ItemListScore, ItemListTitle, ItemListMeta } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
 

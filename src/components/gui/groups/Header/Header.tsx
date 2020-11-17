@@ -9,9 +9,6 @@ const Header: React.FC = () => {
   return (
     <Wrapper>
       <Nav>
-        <Link href="/">
-          <A>Logo</A>
-        </Link>
         <Link href="/top">
           <A>Top</A>
         </Link>
