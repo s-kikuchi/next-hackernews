@@ -3,21 +3,28 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { timeAgo } from '@/utils/filter';
-import { PRIMARY } from '@/utils/constants';
 
 interface Props {
+  id: number,
   by: string,
   time: number,
+  type: string,
+  descendants: number | undefined,
 }
 
 const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
-  const { by, time } = props;
+  const { id, by, time, type, descendants } = props;
+  console.log(typeof descendants);
+
   return (
     <Wrapper>
       <span>
         by <Link href={'/user/' + by}>{by}</Link>
       </span>
-      <span> {timeAgo(time)} ago</span>
+      <span> {timeAgo(time)} ago </span>
+      <span>
+        <Link href={'/item/' + id}><a>{ descendants } comments</a></Link>
+      </span>
     </Wrapper>
   )
 };

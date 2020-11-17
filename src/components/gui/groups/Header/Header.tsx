@@ -10,19 +10,19 @@ const Header: React.FC = () => {
     <Wrapper>
       <Nav>
         <Link href="/top">
-          <A>Top</A>
+          <StyledA>Top</StyledA>
         </Link>
         <Link href="/new">
-          <A>New</A>
+          <StyledA>New</StyledA>
         </Link>
         <Link href="/show">
-          <A>Show</A>
+          <StyledA>Show</StyledA>
         </Link>
         <Link href="/ask">
-          <A>Ask</A>
+          <StyledA>Ask</StyledA>
         </Link>
         <Link href="/job">
-          <A>Job</A>
+          <StyledA>Job</StyledA>
         </Link>
         <a
           style={{
@@ -68,7 +68,7 @@ const Nav = styled.nav`
   }
 `;
 
-const A = styled.a`
+const StyledA = styled.a`
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.15s ease;
   line-height: 24px;

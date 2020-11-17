@@ -2,7 +2,7 @@ import * as React from 'react';
 import { atom, useSetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
-import { fetchIdsByType, fetchItems, fetchUser } from '@/repositories/';
+import { fetchIdsByType, fetchItems, fetchItem, fetchUser } from '@/repositories/';
 import * as Model from '@/models';
 
 const initialIds: {
@@ -31,6 +31,7 @@ export const useItems = (type: string): void => {
       setIds((prevState) => {
         fetchItems(ids).then((items :number[]) => {
           setItems(items);
+          console.log(items, 'items');
         });
         return {
           ...prevState,
@@ -39,6 +40,14 @@ export const useItems = (type: string): void => {
       });
     });
   }, []);
+};
+
+export const useItem = (id: number) => {
+  React.useEffect(() => {
+    fetchItem(id).then(item => {
+      console.log(item);
+    })
+  })
 };
 
 const initialUser: Model.User | any = { };

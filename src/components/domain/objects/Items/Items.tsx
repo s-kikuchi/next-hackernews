@@ -39,7 +39,7 @@ const Items: React.FC<Props> = (props): React.ReactElement => {
             &lt; prev / more &gt;
           </div>
         </div>
-        <div style={{ width: '100%', display: 'block', position: 'relative', transition: 'all 0.5s cubic-bezier(0.55, 0, 0.1, 1)'}}>
+        <div style={{ width: '100%', display: 'block', position: 'relative', transition: 'all 0.5s cubic-bezier(0.55, 0, 0.1, 1)', marginTop: '100px'}}>
           <ListLayout>
             {items.map((item: Model.Item) => {
               return (

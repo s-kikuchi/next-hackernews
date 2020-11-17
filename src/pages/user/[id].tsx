@@ -4,7 +4,7 @@ import Header from 'next/head';
 
 import { MainLayout } from '@/components/layouts';
 import { useUser } from '@/hooks/';
-import UserDetailContainer from '@/components/containers/UserDetailContainer';
+import { UserDetailContainer } from '@/components/containers';
 
 export default (): React.ReactElement => {
   useUser();
