@@ -42,7 +42,6 @@ const User: React.FC<Props> = (props) => {
 };
 
 const Wrapper = styled.div`
-  padding-top: 55px;
   background-color: #fff;
   box-sizing: border-box;
   padding-left: 3em;
