@@ -1,11 +1,13 @@
 import * as React from 'react';
 
-import { ListLayout } from '@/components/layouts';
-import { ItemListItem } from '@/components/domain/elements/Items';
+import { ItemsHeader, ItemsBody, ItemListItem } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
 
 interface Props {
-  items: []
+  items: Model.Item | any;
+  lists: Object;
+  itemsPerPage: number;
+  type: string;
 }
 
 /**
@@ -13,41 +15,18 @@ interface Props {
  * @param props
  */
 const Items: React.FC<Props> = (props): React.ReactElement => {
-  const { items } = props;
+  const { items, lists, itemsPerPage, type } = props;
 
   // TODO: Apply loading style
-  if (!items) {
+  if (!lists[type]) {
     return <div>Loading</div>
   }
 
   if (items) {
     return (
       <>
-        <div>
-          <div style={{
-            backgroundColor: '#fff',
-            borderRadius: '2px',
-            padding: '15px 30px',
-            position: 'fixed',
-            textAlign: 'center',
-            top: '55px',
-            left: '0',
-            right: '0',
-            zIndex: 998,
-            boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
-          }}>
-            &lt; prev / more &gt;
-          </div>
-        </div>
-        <div style={{ width: '100%', display: 'block', position: 'relative', transition: 'all 0.5s cubic-bezier(0.55, 0, 0.1, 1)', marginTop: '100px'}}>
-          <ListLayout>
-            {items.map((item: Model.Item) => {
-              return (
-                <ItemListItem item={item} key={item.title + item.id + item.by} />
-              )
-            })}
-          </ListLayout>
-        </div>
+        <ItemsHeader itemsPerPage={itemsPerPage} lists={lists} type={type} />
+        <ItemsBody items={items} />
       </>
     )
   }

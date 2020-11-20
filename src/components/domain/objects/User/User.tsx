@@ -5,7 +5,7 @@ import * as Model from '@/models'
 import { timeAgo } from '@/utils/filter';
 
 interface Props {
-  user: Model.User
+  user: Model.User | any
 }
 
 /**

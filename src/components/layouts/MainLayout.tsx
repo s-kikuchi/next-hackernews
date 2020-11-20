@@ -20,7 +20,7 @@ const Wrapper = styled.main`
   position: relative;
   
   // this can be changed
-  padding-top: ${(props: Props) => props.paddingTop || '100px'};
+  padding-top: ${(props: Props) => props.paddingTop || '0px'};
 `;
 
 export default MainLayout;
