@@ -54,38 +54,41 @@ export const useList = (): void => {
 
 export const useItems = (ids: number[]) => {
   const [state, setState] = useRecoilState(allState);
+  const router = useRouter();
   const now = new Date();
 
-  ids = ids.filter(id => {
-    const item = state.items[id];
-    if (!item) {
-      return true
-    }
-    // @ts-ignore
-    if (now - item.__lastUpdated > 1000 * 60 * 3) {
-      return true;
-    }
-    return false;
-  });
-  if (ids.length) {
-    // return fetchItems(ids).then(item => {
-    fetchItems(ids).then(item => {
-      let newItems = {};
-      item.forEach(item => {
-        newItems[item['id']] = item;
-      });
-      setState((prevState) => {
-        return {
-          ...prevState,
-          items: {
-            ...newItems
+  React.useEffect(() => {
+    ids = ids.filter(id => {
+      const item = state.items[id];
+      if (!item) {
+        return true
+      }
+      // @ts-ignore
+      if (now - item.__lastUpdated > 1000 * 60 * 3) {
+        return true;
+      }
+      return false;
+    });
+    if (ids.length) {
+      // return fetchItems(ids).then(item => {
+      fetchItems(ids).then(item => {
+        let newItems = {};
+        item.forEach(item => {
+          newItems[item['id']] = item;
+        });
+        setState((prevState) => {
+          return {
+            ...prevState,
+            items: {
+              ...newItems
+            }
           }
-        }
+        })
       })
-    })
-  } else {
-    // return Promise.resolve();
-  }
+    } else {
+      // return Promise.resolve();
+    }
+  }, [router]);
 };
 
 export const useActiveIds = () => {

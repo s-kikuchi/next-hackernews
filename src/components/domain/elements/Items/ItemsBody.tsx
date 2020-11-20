@@ -12,7 +12,7 @@ interface Props {
 const ItemsBody: React.FC<Props> = (props) => {
   const { items } = props;
 
-  // This loading shoud be customize
+  // This loading should be customize
   if (!items) {
     return <div>Loading</div>
   } else {
