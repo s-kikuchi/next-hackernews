@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
-import { useItems, itemsState } from '@/hooks';
 import { Items } from '@/components/domain/objects/Items';
+import { useList, useActiveIds, useItems, allState } from '@/hooks';
 
 interface Props {
   type: string,
@@ -10,12 +10,19 @@ interface Props {
 
 const ItemsCollectionContainer: React.FC<Props> = (props): React.ReactElement => {
   const { type } = props;
-  useItems(type);
-  const items = useRecoilValue(itemsState);
+  const [ state, setState ] = useRecoilState(allState);
+
+  useList(type);
+  const ids = useActiveIds();
+  useItems(ids);
 
   return (
-    // @ts-ignore
-    <Items items={items} />
+    <Items
+      items={state.items}
+      itemsPerPage={state.itemsPerPage}
+      lists={state.lists}
+      type={type}
+    />
   )
 };
 

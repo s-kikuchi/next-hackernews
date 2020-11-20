@@ -1,71 +1,145 @@
 import * as React from 'react';
-import { atom, useSetRecoilState } from 'recoil';
+import { atom, useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
 import { fetchIdsByType, fetchItems, fetchItem, fetchUser } from '@/repositories/';
 import * as Model from '@/models';
 
-const initialIds: {
-  [type: string]: number[]
-} = {};
+const initialState: {
+  activeType: any,
+  itemsPerPage: number,
+  items: {
+    [id: number]: Model.Item
+  },
+  users: {
+    [id: string]: Model.User,
+  },
+  lists: {
+    [type: string]: number[],
+  }
+} = {
+  activeType: null,
+  itemsPerPage: 20,
+  items: [],
+  users: {},
+  lists: {}
+};
 
-export const idsState = atom({
-  key: 'idsState',
-  default: initialIds,
+export const allState = atom({
+  key: 'allState',
+  default: initialState
 });
 
-// const initialItems: Item[] = [];
-const initialItems = [];
-
-export const itemsState = atom({
-  key: 'itemsState',
-  default: initialItems
-});
-
-export const useItems = (type: string): void => {
-  const setItems = useSetRecoilState(itemsState);
-  const setIds = useSetRecoilState(idsState);
+export const useList = (type: string): void => {
+  const [state, setState] = useRecoilState(allState);
 
   React.useEffect(() => {
     fetchIdsByType(type).then((ids: number[]) => {
-      setIds((prevState) => {
-        fetchItems(ids).then((items :number[]) => {
-          setItems(items);
-          console.log(items, 'items');
-        });
+      setState((prevState) => {
         return {
           ...prevState,
-          ids
+          activeType: type,
+          lists: {
+            [type]: ids
+          }
         }
       });
     });
   }, []);
 };
 
-export const useItem = (id: number) => {
-  React.useEffect(() => {
-    fetchItem(id).then(item => {
-      console.log(item);
+export const useItems = (ids: number[]) => {
+  const [state, setState] = useRecoilState(allState);
+  const now = new Date();
+
+  ids = ids.filter(id => {
+    const item = state.items[id];
+    if (!item) {
+      return true
+    }
+    // @ts-ignore
+    if (now - item.__lastUpdated > 1000 * 60 * 3) {
+      return true;
+    }
+    return false;
+  });
+  if (ids.length) {
+    // return fetchItems(ids).then(item => {
+    fetchItems(ids).then(item => {
+      let newItems = {};
+      item.forEach(item => {
+        newItems[item['id']] = item;
+      });
+      setState((prevState) => {
+        return {
+          ...prevState,
+          items: {
+            ...newItems
+          }
+        }
+      })
     })
-  })
+  } else {
+    // return Promise.resolve();
+  }
 };
 
-const initialUser: Model.User | any = { };
-
-export const userState = atom({
-  key: 'userState',
-  default: initialUser
-});
-
-export const useUser = (): void => {
-  // TODO: Separate fetching path parameter
+export const useActiveIds = () => {
+  const [state, setState] = useRecoilState(allState);
+  const { activeType, itemsPerPage } = state;
   const router = useRouter();
-  const id = router.query.id;
-  const setUser = useSetRecoilState(userState);
+  console.log(router);
+  const id = router.query.id || 1;
+
+  if (!activeType) {
+    return []
+  }
+  let page;
+
+  try {
+    page = Number(id);
+  } catch(e) {
+    // redirect to 404 page
+    console.log(e);
+  }
+  const start = (page - 1) * itemsPerPage;
+  const end = page * itemsPerPage;
+
+  return state.lists[activeType].slice(start, end);
+};
+
+export const useActiveItems = () => {
+  const [state, setState] = useRecoilState(allState);
+  const activeIds = useActiveIds();
+
+  return activeIds.map(id => state.items[id]).filter(_ => _);
+};
+
+export const useUser = (): Model.User => {
+  const router = useRouter();
+  const { id } = router.query;
+  const [state, setState] = useRecoilState(allState);
+  let user = {};
 
   React.useEffect(() => {
     if (router.asPath !== router.route) {
-      fetchUser(id).then(user => setUser(user));
+      if (state.users[id]) {
+        user = state.users[id];
+      } else {
+        fetchUser(id).then((u: Model.User) => {
+          user = u;
+          setState((prevState) => {
+            return {
+              ...prevState,
+              users: {
+                [user.id]: user
+              }
+            }
+          });
+        })
+      }
     }
   }, [router]);
+
+  return user;
 };

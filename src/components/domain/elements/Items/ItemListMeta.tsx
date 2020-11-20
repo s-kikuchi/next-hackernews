@@ -14,7 +14,6 @@ interface Props {
 
 const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
   const { id, by, time, type, descendants } = props;
-  console.log(typeof descendants);
 
   return (
     <Wrapper>
