@@ -4,15 +4,9 @@ import { useRecoilState } from 'recoil';
 import { Items } from '@/components/domain/objects/Items';
 import { useList, useActiveIds, useItems, allState } from '@/hooks';
 
-interface Props {
-  type: string,
-}
-
-const ItemsCollectionContainer: React.FC<Props> = (props): React.ReactElement => {
-  const { type } = props;
+const ItemsCollectionContainer: React.FC = (): React.ReactElement => {
   const [ state, setState ] = useRecoilState(allState);
 
-  useList(type);
   const ids = useActiveIds();
   useItems(ids);
 
@@ -21,7 +15,7 @@ const ItemsCollectionContainer: React.FC<Props> = (props): React.ReactElement =>
       items={state.items}
       itemsPerPage={state.itemsPerPage}
       lists={state.lists}
-      type={type}
+      type={state.activeType}
     />
   )
 };

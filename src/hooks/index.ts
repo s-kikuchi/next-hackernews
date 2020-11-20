@@ -30,7 +30,9 @@ export const allState = atom({
   default: initialState
 });
 
-export const useList = (type: string): void => {
+export const useList = (): void => {
+  const router = useRouter();
+  const { type } = router.query;
   const [state, setState] = useRecoilState(allState);
 
   React.useEffect(() => {
@@ -40,12 +42,14 @@ export const useList = (type: string): void => {
           ...prevState,
           activeType: type,
           lists: {
+            ...prevState.lists,
+            // @ts-ignore
             [type]: ids
           }
         }
       });
     });
-  }, []);
+  }, [type]);
 };
 
 export const useItems = (ids: number[]) => {
@@ -88,8 +92,6 @@ export const useActiveIds = () => {
   const [state, setState] = useRecoilState(allState);
   const { activeType, itemsPerPage } = state;
   const router = useRouter();
-  console.log(router);
-  const id = router.query.id || 1;
 
   if (!activeType) {
     return []
@@ -97,7 +99,7 @@ export const useActiveIds = () => {
   let page;
 
   try {
-    page = Number(id);
+    page = Number(router.query.page || 1);
   } catch(e) {
     // redirect to 404 page
     console.log(e);
