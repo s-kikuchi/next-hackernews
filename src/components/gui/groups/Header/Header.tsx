@@ -9,19 +9,19 @@ const Header: React.FC = () => {
   return (
     <Wrapper>
       <Nav>
-        <Link href="/top">
+        <Link href="/item?type=top">
           <StyledA>Top</StyledA>
         </Link>
-        <Link href="/new">
+        <Link href="/item?type=new">
           <StyledA>New</StyledA>
         </Link>
-        <Link href="/show">
+        <Link href="/item?type=show">
           <StyledA>Show</StyledA>
         </Link>
-        <Link href="/ask">
+        <Link href="/item?type=ask">
           <StyledA>Ask</StyledA>
         </Link>
-        <Link href="/job">
+        <Link href="/item?type=job">
           <StyledA>Job</StyledA>
         </Link>
         <a

@@ -18,8 +18,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
   };
 
   const currentPage = () => {
-    const id = router.query.id || 1;
-    return Number(id);
+    return Number(router.query.page || 1);
   };
 
   if (!lists || !type || !itemsPerPage) {
@@ -28,11 +27,11 @@ const ItemsHeader: React.FC<Props> = (props) => {
     return (
       <Wrapper>
         { currentPage() <= 1 ?
-          <StyledA>&lt; prev</StyledA> : <Link href={`/${type}/${currentPage() - 1}`}>&lt; prev</Link>
+          <StyledA>&lt; prev</StyledA> : <Link href={`/item?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
         }
         <span> { currentPage() } / { maxPage() } </span>
         { maxPage() === currentPage() ?
-          <StyledA>more &gt;</StyledA> : <Link href={`/${type}/${currentPage() + 1}`}>more &gt;</Link>
+          <StyledA>more &gt;</StyledA> : <Link href={`/item?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
         }
       </Wrapper>
     )
