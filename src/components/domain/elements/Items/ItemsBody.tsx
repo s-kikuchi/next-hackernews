@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { ListLayout } from "@/components/layouts";
-import { ItemListItem } from "@/components/domain/elements/Items/index";
+import { ListLayout } from '@/components/layouts';
+import { ItemListItem } from '@/components/domain/elements/Items/index';
 
 import * as Model from '@/models';
 
@@ -14,19 +14,17 @@ const ItemsBody: React.FC<Props> = (props) => {
 
   // This loading should be customize
   if (!items) {
-    return <div>Loading</div>
+    return <div>Loading</div>;
   } else {
     return (
       <Wrapper>
         <ListLayout>
           {Object.keys(items).map((key) => {
-            return (
-              <ItemListItem item={items[key]} key={key} />
-            )
+            return <ItemListItem item={items[key]} key={key} />;
           })}
         </ListLayout>
       </Wrapper>
-    )
+    );
   }
 };
 

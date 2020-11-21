@@ -2,8 +2,4 @@ import ItemCollectionContainer from '@/components/containers/ItemCollectionConta
 import ItemsCollectionContainer from '@/components/containers/ItemsCollectionContainer';
 import UserDetailContainer from '@/components/containers/UserDetailContainer';
 
-export {
-  ItemsCollectionContainer,
-  ItemCollectionContainer,
-  UserDetailContainer,
-}
+export { ItemsCollectionContainer, ItemCollectionContainer, UserDetailContainer };

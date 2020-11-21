@@ -3,11 +3,11 @@ import 'firebase/database';
 
 export default function createAPI({ config, version }) {
   let api;
-  if (process.__API__) {
-    api = process.__API__;
-  } else {
+  try {
+    api = firebase.app();
+  } catch (e) {
     firebase.initializeApp(config);
-    api = process.__API__ = firebase.database().ref(version);
+    api = firebase.database().ref(version);
     api.onServer = true;
   }
   return api;

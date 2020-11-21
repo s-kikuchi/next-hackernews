@@ -5,7 +5,7 @@ import { Items } from '@/components/domain/objects/Items';
 import { useList, useActiveIds, useItems, allState } from '@/hooks';
 
 const ItemsCollectionContainer: React.FC = (): React.ReactElement => {
-  const [ state, setState ] = useRecoilState(allState);
+  const [state, setState] = useRecoilState(allState);
 
   const ids = useActiveIds();
   useItems(ids);
@@ -17,7 +17,7 @@ const ItemsCollectionContainer: React.FC = (): React.ReactElement => {
       lists={state.lists}
       type={state.activeType}
     />
-  )
+  );
 };
 
 export default ItemsCollectionContainer;

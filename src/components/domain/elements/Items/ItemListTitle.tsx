@@ -3,9 +3,9 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 interface Props {
-  url: string | any,
-  id: number,
-  title: string
+  url: string | any;
+  id: number;
+  title: string;
 }
 
 /**
@@ -16,16 +16,16 @@ const ItemListTitle: React.FC<Props> = (props): React.ReactElement => {
 
   return (
     <Wrapper>
-      {url ?
+      {url ? (
         <>
           <a href={url} target="_blank" rel="noreferrer">
             {title}
             {/* <span style={{ fontSize: '.85em', color: '#828282' }}> ({url})</span> */}
           </a>
         </>
-        :
-        <Link href={'/item/' + id}>{ title }</Link>
-      }
+      ) : (
+        <Link href={'/item/' + id}>{title}</Link>
+      )}
     </Wrapper>
   );
 };

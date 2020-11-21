@@ -21,7 +21,7 @@ const fetch = (child) => {
   });
 };
 
-export const fetchIdsByType = (type) => {
+export const fetchIdsByType = (type: string) => {
   return fetch(`${type}stories`);
 };
 
