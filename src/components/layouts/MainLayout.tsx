@@ -7,10 +7,8 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const MainLayout: React.FC<Props> = ({ children, ...props}) => {
-  return (
-    <Wrapper {...props}>{ children }</Wrapper>
-  )
+const MainLayout: React.FC<Props> = ({ children, ...props }) => {
+  return <Wrapper {...props}>{children}</Wrapper>;
 };
 
 const Wrapper = styled.main`
@@ -18,7 +16,7 @@ const Wrapper = styled.main`
   width: 800px;
   margin: 0 auto;
   position: relative;
-  
+
   // this can be changed
   padding-top: ${(props: Props) => props.paddingTop || '0px'};
 `;

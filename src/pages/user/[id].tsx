@@ -5,7 +5,6 @@ import { MainLayout } from '@/components/layouts';
 import { UserDetailContainer } from '@/components/containers';
 
 export default (): React.ReactElement => {
-
   return (
     <>
       <Header>
@@ -17,4 +16,4 @@ export default (): React.ReactElement => {
       </MainLayout>
     </>
   );
-}
+};

@@ -14,7 +14,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
   const router = useRouter();
 
   const maxPage = () => {
-    return Math.ceil(lists[type].length / itemsPerPage)
+    return Math.ceil(lists[type].length / itemsPerPage);
   };
 
   const currentPage = () => {
@@ -22,19 +22,26 @@ const ItemsHeader: React.FC<Props> = (props) => {
   };
 
   if (!lists || !type || !itemsPerPage) {
-    return <Wrapper>Loading</Wrapper>
+    return <Wrapper>Loading</Wrapper>;
   } else {
     return (
       <Wrapper>
-        { currentPage() <= 1 ?
-          <StyledA>&lt; prev</StyledA> : <Link href={`/item?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
-        }
-        <span> { currentPage() } / { maxPage() } </span>
-        { maxPage() === currentPage() ?
-          <StyledA>more &gt;</StyledA> : <Link href={`/item?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
-        }
+        {currentPage() <= 1 ? (
+          <StyledA>&lt; prev</StyledA>
+        ) : (
+          <Link href={`/item?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
+        )}
+        <span>
+          {' '}
+          {currentPage()} / {maxPage()}{' '}
+        </span>
+        {maxPage() === currentPage() ? (
+          <StyledA>more &gt;</StyledA>
+        ) : (
+          <Link href={`/item?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
+        )}
       </Wrapper>
-    )
+    );
   }
 };
 
@@ -48,7 +55,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   z-index: 998;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledA = styled.a`

@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { ListItemLayout } from "@/components/layouts";
+import { ListItemLayout } from '@/components/layouts';
 import { ItemListScore, ItemListTitle, ItemListMeta } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
 
 interface Props {
-  item: Model.Item
+  item: Model.Item;
 }
 
 /**
@@ -21,7 +21,13 @@ const ItemListItem: React.FC<Props> = (props): React.ReactElement => {
     <ListItemLayout>
       <ItemListScore score={item.score} />
       <ItemListTitle id={item.id} title={item.title} url={item.url} />
-      <ItemListMeta id={item.id} by={item.by} time={item.time} type={item.type} descendants={item.descendants} />
+      <ItemListMeta
+        id={item.id}
+        by={item.by}
+        time={item.time}
+        type={item.type}
+        descendants={item.descendants}
+      />
     </ListItemLayout>
   );
 };

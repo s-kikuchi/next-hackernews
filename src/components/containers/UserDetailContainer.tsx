@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import User from '@/components/domain/objects/User';
-import { useUser, allState } from "@/hooks";
+import { useUser, allState } from '@/hooks';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { useRouter } from "@@/node_modules/next/router";
-import { fetchUser } from "@/repositories";
-import * as Model from "@/models";
+import { useRouter } from '@@/node_modules/next/router';
+import { fetchUser } from '@/repositories';
+import * as Model from '@/models';
 
 const UserDetailContainer: React.FC = (): React.ReactElement => {
   const router = useRouter();
@@ -22,21 +22,21 @@ const UserDetailContainer: React.FC = (): React.ReactElement => {
             return {
               ...prevState,
               users: {
-                [u.id]: u
-              }
-            }
+                [u.id]: u,
+              },
+            };
           });
-        })
+        });
       }
     }
   }, [router]);
 
   // @ts-ignore
   if (!state.users[id]) {
-    return <div>Loading</div>
+    return <div>Loading</div>;
   } else {
     // @ts-ignore
-    return <User user={state.users[id]} />
+    return <User user={state.users[id]} />;
   }
 };
 

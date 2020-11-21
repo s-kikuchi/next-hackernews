@@ -1,9 +1,9 @@
 interface User {
-  id: string,
+  id: string;
   karma: string;
-  delay: number,
-  submitted: number[],
-  created: number,
+  delay: number;
+  submitted: number[];
+  created: number;
 }
 
 export default User;

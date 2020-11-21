@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { PRIMARY } from '@/utils/constants';
 
 interface Props {
-  score: number
+  score: number;
 }
 
 /**
@@ -12,11 +12,7 @@ interface Props {
  */
 const ItemListScore: React.FC<Props> = (props): React.ReactElement => {
   const { score } = props;
-  return (
-    <Wrapper>
-      { score }
-    </Wrapper>
-  );
+  return <Wrapper>{score}</Wrapper>;
 };
 
 const Wrapper = styled.div`

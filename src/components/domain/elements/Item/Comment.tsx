@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-interface Props {
-
-}
+interface Props {}
 
 const Comment: React.FC<Props> = (props) => {
-  return (
-    <div>Comment</div>
-  )
+  return <div>Comment</div>;
 };
+
+export default Comment;

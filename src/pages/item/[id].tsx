@@ -12,6 +12,5 @@ export default (): React.ReactElement => {
 
       <ItemCollectionContainer />
     </>
-  )
-}
-
+  );
+};

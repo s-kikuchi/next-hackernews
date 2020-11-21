@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ItemsHeader, ItemsBody, ItemListItem } from '@/components/domain/elements/Items';
+import { ItemsHeader, ItemsBody } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
 
 interface Props {
@@ -19,7 +19,7 @@ const Items: React.FC<Props> = (props): React.ReactElement => {
 
   // TODO: Apply loading style
   if (!lists[type]) {
-    return <div>Loading</div>
+    return <div>Loading</div>;
   }
 
   if (items) {
@@ -28,7 +28,7 @@ const Items: React.FC<Props> = (props): React.ReactElement => {
         <ItemsHeader itemsPerPage={itemsPerPage} lists={lists} type={type} />
         <ItemsBody items={items} />
       </>
-    )
+    );
   }
 };
 

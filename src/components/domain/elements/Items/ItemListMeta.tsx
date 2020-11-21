@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { timeAgo } from '@/utils/filter';
 
 interface Props {
-  id: number,
-  by: string,
-  time: number,
-  type: string,
-  descendants: number | undefined,
+  id: number;
+  by: string;
+  time: number;
+  type: string;
+  descendants: number | undefined;
 }
 
 const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
@@ -22,10 +22,12 @@ const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
       </span>
       <span> {timeAgo(time)} ago </span>
       <span>
-        <Link href={'/item/' + id}><a>{ descendants } comments</a></Link>
+        <Link href={'/item/' + id}>
+          <a>{descendants} comments</a>
+        </Link>
       </span>
     </Wrapper>
-  )
+  );
 };
 
 const Wrapper = styled.div`
