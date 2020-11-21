@@ -6,28 +6,28 @@ import { fetchIdsByType, fetchItems, fetchItem, fetchUser } from '@/repositories
 import * as Model from '@/models';
 
 const initialState: {
-  activeType: any,
-  itemsPerPage: number,
+  activeType: any;
+  itemsPerPage: number;
   items: {
-    [id: number]: Model.Item
-  },
+    [id: number]: Model.Item;
+  };
   users: {
-    [id: string]: Model.User,
-  },
+    [id: string]: Model.User;
+  };
   lists: {
-    [type: string]: number[],
-  }
+    [type: string]: number[];
+  };
 } = {
   activeType: null,
   itemsPerPage: 20,
   items: [],
   users: {},
-  lists: {}
+  lists: {},
 };
 
 export const allState = atom({
   key: 'allState',
-  default: initialState
+  default: initialState,
 });
 
 export const useList = (): void => {
@@ -44,9 +44,9 @@ export const useList = (): void => {
           lists: {
             ...prevState.lists,
             // @ts-ignore
-            [type]: ids
-          }
-        }
+            [type]: ids,
+          },
+        };
       });
     });
   }, [type]);
@@ -58,37 +58,34 @@ export const useItems = (ids: number[]) => {
   const now = new Date();
 
   React.useEffect(() => {
-    ids = ids.filter(id => {
+    ids = ids.filter((id) => {
       const item = state.items[id];
       if (!item) {
-        return true
-      }
-      // @ts-ignore
-      if (now - item.__lastUpdated > 1000 * 60 * 3) {
         return true;
       }
-      return false;
+      // @ts-ignore
+      return now - item.__lastUpdated > 1000 * 60 * 3;
     });
     if (ids.length) {
       // return fetchItems(ids).then(item => {
-      fetchItems(ids).then(item => {
-        let newItems = {};
-        item.forEach(item => {
+      fetchItems(ids).then((item) => {
+        const newItems = {};
+        item.forEach((item) => {
           newItems[item['id']] = item;
         });
         setState((prevState) => {
           return {
             ...prevState,
             items: {
-              ...newItems
-            }
-          }
-        })
-      })
+              ...newItems,
+            },
+          };
+        });
+      });
     } else {
       // return Promise.resolve();
     }
-  }, [router]);
+  }, [router, ids]);
 };
 
 export const useActiveIds = () => {
@@ -97,13 +94,13 @@ export const useActiveIds = () => {
   const router = useRouter();
 
   if (!activeType) {
-    return []
+    return [];
   }
   let page;
 
   try {
     page = Number(router.query.page || 1);
-  } catch(e) {
+  } catch (e) {
     // redirect to 404 page
     console.log(e);
   }
@@ -117,7 +114,7 @@ export const useActiveItems = () => {
   const [state, setState] = useRecoilState(allState);
   const activeIds = useActiveIds();
 
-  return activeIds.map(id => state.items[id]).filter(_ => _);
+  return activeIds.map((id) => state.items[id]).filter((_) => _);
 };
 
 export const useUser = (): Model.User => {
@@ -137,11 +134,11 @@ export const useUser = (): Model.User => {
             return {
               ...prevState,
               users: {
-                [user.id]: user
-              }
-            }
+                [user.id]: user,
+              },
+            };
           });
-        })
+        });
       }
     }
   }, [router]);
