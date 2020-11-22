@@ -6,6 +6,11 @@ interface Props {
   score: number;
 }
 
+/**
+ * ItemHeader component for Item domain.
+ * @param props
+ * @constructor
+ */
 const ItemHeader: React.FC<Props> = (props): React.ReactElement => {
   const { title, by, score } = props;
   return (

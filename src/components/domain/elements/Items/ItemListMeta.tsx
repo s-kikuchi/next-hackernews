@@ -8,12 +8,12 @@ interface Props {
   id: number;
   by: string;
   time: number;
-  type: string;
   descendants: number | undefined;
 }
 
 const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
-  const { id, by, time, type, descendants } = props;
+  const { id, by, time, descendants } = props;
+  console.log(props, 'props');
 
   return (
     <Wrapper>
@@ -21,11 +21,16 @@ const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
         by <Link href={'/user/' + by}>{by}</Link>
       </span>
       <span> {timeAgo(time)} ago </span>
-      <span>
-        <Link href={'/item/' + id}>
-          <a>{descendants} comments</a>
-        </Link>
-      </span>
+      {/* Don't remove below section when descendants are 0, but remove when descendants === undefined */}
+      { descendants !== undefined ?
+        <span>
+          <Link href={'/item/' + id}>
+            <a>{descendants} comments</a>
+          </Link>
+        </span>
+        :
+        null
+      }
     </Wrapper>
   );
 };

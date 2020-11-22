@@ -1,5 +1,5 @@
 import ItemCollectionContainer from '@/components/containers/ItemCollectionContainer';
 import ItemsCollectionContainer from '@/components/containers/ItemsCollectionContainer';
-import UserDetailContainer from '@/components/containers/UserDetailContainer';
+import UserCollectionContainer from '@/components/containers/UserCollectionContainer';
 
-export { ItemsCollectionContainer, ItemCollectionContainer, UserDetailContainer };
+export { ItemsCollectionContainer, ItemCollectionContainer, UserCollectionContainer };

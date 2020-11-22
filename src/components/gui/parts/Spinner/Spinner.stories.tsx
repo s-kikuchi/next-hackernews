@@ -2,7 +2,7 @@ import React from 'react';
 import Spinner from './Spinner';
 
 export default {
-  title: 'Atoms / Spinner',
+  title: 'gui / parts / Spinner',
   component: Spinner,
   includeStories: ['SpinnerSample'],
 };

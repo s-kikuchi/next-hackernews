@@ -2,7 +2,7 @@ import * as React from 'react';
 import Header from 'next/head';
 
 import { MainLayout } from '@/components/layouts';
-import { UserDetailContainer } from '@/components/containers';
+import { UserCollectionContainer } from '@/components/containers';
 
 export default (): React.ReactElement => {
   return (
@@ -12,7 +12,7 @@ export default (): React.ReactElement => {
       </Header>
 
       <MainLayout paddingTop={'65px'}>
-        <UserDetailContainer />
+        <UserCollectionContainer />
       </MainLayout>
     </>
   );

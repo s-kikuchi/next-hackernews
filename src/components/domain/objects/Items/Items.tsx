@@ -4,10 +4,10 @@ import { ItemsHeader, ItemsBody } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
 
 interface Props {
-  items: Model.Item | any;
-  lists: Object;
+  ids: number[];
   itemsPerPage: number;
-  type: string;
+  activeItemType: string
+  activeItems: Model.Item[]
 }
 
 /**
@@ -15,21 +15,14 @@ interface Props {
  * @param props
  */
 const Items: React.FC<Props> = (props): React.ReactElement => {
-  const { items, lists, itemsPerPage, type } = props;
+  const { ids, itemsPerPage, activeItemType, activeItems } = props;
 
-  // TODO: Apply loading style
-  if (!lists[type]) {
-    return <div>Loading</div>;
-  }
-
-  if (items) {
-    return (
-      <>
-        <ItemsHeader itemsPerPage={itemsPerPage} lists={lists} type={type} />
-        <ItemsBody items={items} />
-      </>
-    );
-  }
+  return (
+    <>
+      <ItemsHeader ids={ids} itemsPerPage={itemsPerPage} type={activeItemType} />
+      <ItemsBody activeItems={activeItems} />
+    </>
+  );
 };
 
 export default Items;

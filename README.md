@@ -1,30 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# next-hackernews
+Hackernews clone build with:
 
-## Getting Started
+- **<img alt="TypeScript" src="https://user-images.githubusercontent.com/4289883/72760400-7524e080-3b8d-11ea-9b0c-f6e09280e6d8.png" height="16"> [TypeScript](https://www.typescriptlang.org/)**
+- **<img alt="React" src="https://user-images.githubusercontent.com/4289883/72760398-7524e080-3b8d-11ea-95ea-736bd3081ac9.png" height="16"> [React](https://reactjs.org)**
+- **<img alt="Recoil" src="https://user-images.githubusercontent.com/38875367/100594712-62e30980-333d-11eb-9501-25a92bdb6a5f.png" height="16"> [Recoil](https://reactjs.org)**
+- **<img alt="Next.js" src="https://user-images.githubusercontent.com/4289883/73734536-a4416300-46f2-11ea-94c5-db97d7e9a814.png" height="16"> [Next.js](https://nextjs.org/)**
+- **<img alt="Jest" src="https://user-images.githubusercontent.com/4289883/72760396-748c4a00-3b8d-11ea-9eba-e3df28a3f18a.png" height="16"> [Jest](https://jestjs.io/)**
+- **<img alt="Styled Compnents" src="https://user-images.githubusercontent.com/38875367/100569069-454b7b00-3310-11eb-8227-751b0ca73234.png" height="16"> [Styled Components](https://emotion.sh/)**
+- **<img alt="Storybook" src="https://user-images.githubusercontent.com/4289883/72760399-7524e080-3b8d-11ea-9174-1aa265d9c239.png" height="16"> [Storybook](https://storybook.js.org/)**
+- **<img alt="Prettier" src="https://user-images.githubusercontent.com/38875367/100571106-a4f85500-3315-11eb-94c6-f205212297f6.png" height="16"> [Prettier](https://prettier.io/)**
+- **<img alt="ESLint" src="https://user-images.githubusercontent.com/38875367/100571315-35369a00-3316-11eb-9238-07324deec076.png" height="16"> [ESLint](https://eslint.org/)**
 
-First, run the development server:
+## Build Setup
+Clone this project, install npm packages, and, start node server.
 
-```bash
+```
+git clone https://github.com/s-kikuchi/next-hackernews.git
+cd next-hackernews
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to `http://localhost:3000`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Directory structure
+This project follows [Presentational + container components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) and [Clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-## Learn More
+| Directory | Inside |
+| :--- | :--- |
+| `components/` | All components that draw GUI and container |
+| `hooks/` | Custom hooks |
+| `models/` | Interfaces |
+| `pages/` | Page components |
+| `repositories/` | Functions that fetch data from backend api |
+| `utils/` | Functions for screen drawing |
 
-To learn more about Next.js, take a look at the following resources:
+### components
+In side `components` directory, there are `containers`, `domain`, `gui`, and `layouts` directories.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Directory | Inside |
+| :--- | :--- |
+| `containers/` | Components that fetch data from backend and inject state to other components |
+| `domain/objects` | Domain objects |
+| `domain/elements` | Domain elements for domain objects  |
+| `gui/group` | GUI component consisting of GUI parts |
+| `gui/parts` | GUI component that can't be split any further |
+| `layouts/` | Layout components |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tests
+WIP
 
-## Deploy on Vercel
+## Storybook 
+```
+npm run storybook
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Go to `http://localhost:6006`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Branch management
+Create a new branch that follows [GitHub flow](https://githubflow.github.io/).

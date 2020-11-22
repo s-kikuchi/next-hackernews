@@ -2,25 +2,26 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { ListLayout } from '@/components/layouts';
 import { ItemListItem } from '@/components/domain/elements/Items/index';
-
 import * as Model from '@/models';
+import Spinner from '@/components/gui/parts/Spinner';
 
 interface Props {
-  items: Model.Item | any;
+  activeItems: Model.Item[] | any;
 }
 
 const ItemsBody: React.FC<Props> = (props) => {
-  const { items } = props;
+  const { activeItems } = props;
 
-  // This loading should be customize
-  if (!items) {
-    return <div>Loading</div>;
+  if (!activeItems.length) {
+    return (
+      <Spinner />
+    )
   } else {
     return (
       <Wrapper>
         <ListLayout>
-          {Object.keys(items).map((key) => {
-            return <ItemListItem item={items[key]} key={key} />;
+          { activeItems.map((activeItem) => {
+            return <ItemListItem item={activeItem} key={activeItem.id} />;
           })}
         </ListLayout>
       </Wrapper>

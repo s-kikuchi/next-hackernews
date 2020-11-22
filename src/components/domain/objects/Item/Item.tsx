@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Link from 'next/link';
+import styled from 'styled-components';
 
-import { MainLayout } from '@/components/layouts';
 import { ItemHeader } from '@/components/domain/elements/Item';
+import Spinner from '@/components/gui/parts/Spinner';
 import * as Model from '@/models';
 
 interface Props {
@@ -16,12 +17,20 @@ interface Props {
 const Item: React.FC<Props> = (props): React.ReactElement => {
   const { item } = props;
 
-  return (
-    <MainLayout paddingTop={'65px'}>
-      <ItemHeader by={item.by} title={item.title} score={item.score} />
-      <div style={{ backgroundColor: '#fff', marginTop: '30px', padding: '0 .5em' }}>comment</div>
-    </MainLayout>
-  );
+  if (!item) {
+    return (
+      <Wrapper>
+        <Spinner />
+      </Wrapper>
+    )
+  } else {
+    return (
+      <Wrapper>
+        <ItemHeader by={item.by} title={item.title} score={item.score} />
+        <div style={{ backgroundColor: '#fff', marginTop: '30px', padding: '0 .5em' }}>comment</div>
+      </Wrapper>
+    );
+  }
 };
 
 interface CommentProps {
@@ -43,4 +52,10 @@ const Comment: React.FC<CommentProps> = (props) => {
   );
 };
 
+const Wrapper = styled.div`
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 3em;
+  padding-right: 3em;
+`;
 export default Item;
