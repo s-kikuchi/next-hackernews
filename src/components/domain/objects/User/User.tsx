@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import * as Model from '@/models';
 import { timeAgo } from '@/utils/filter';
+import Spinner from "@/components/gui/parts/Spinner";
 
 interface Props {
   user: Model.User | any;
@@ -14,16 +15,15 @@ interface Props {
 const User: React.FC<Props> = (props) => {
   const { user } = props;
 
-  // TODO: Adding Loading component below when user is not loaded. (not user exists)
   if (!user) {
     return (
       <Wrapper>
-        <h1>User not found</h1>
+        <Spinner />
       </Wrapper>
     );
   } else {
-    // These elements(user.id, user.created, user.karma...) in user domain object will be moved to domain elements.
     return (
+      // If the components will be complex, they must be split and moved to domain elements.
       <Wrapper>
         <h1>User: {user.id}</h1>
         <ul>
@@ -34,12 +34,6 @@ const User: React.FC<Props> = (props) => {
             <span>Karma:</span> {user.karma}
           </li>
         </ul>
-        {/*
-          <p>
-            <a>submissions</a> |
-            <a>comments</a>
-          </p>
-        */}
       </Wrapper>
     );
   }

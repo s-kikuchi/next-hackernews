@@ -2,27 +2,32 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Spinner from '@/components/gui/parts/Spinner';
 
 interface Props {
-  lists: Object;
+  ids: number[];
   itemsPerPage: number;
-  type: string;
+  type: string | string[];
 }
 
 const ItemsHeader: React.FC<Props> = (props) => {
-  const { lists, type, itemsPerPage } = props;
+  const { ids, type, itemsPerPage } = props;
   const router = useRouter();
 
   const maxPage = () => {
-    return Math.ceil(lists[type].length / itemsPerPage);
+    return Math.ceil(ids.length / itemsPerPage);
   };
 
   const currentPage = () => {
     return Number(router.query.page || 1);
   };
 
-  if (!lists || !type || !itemsPerPage) {
-    return <Wrapper>Loading</Wrapper>;
+  if (!ids || !type || !itemsPerPage) {
+    return (
+      <Wrapper>
+        <Spinner />
+      </Wrapper>
+    )
   } else {
     return (
       <Wrapper>
