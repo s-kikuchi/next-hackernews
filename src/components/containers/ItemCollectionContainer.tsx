@@ -4,9 +4,10 @@ import { useItem, useComments } from '@/hooks';
 
 const ItemCollectionContainer: React.FC = () => {
   const item = useItem();
-  useComments(item);
+  // TODO: Look again custom hook ans state structure
+  const commentIsLoading = useComments(item);
 
-  return <Item item={item} />;
+  return <Item item={item} loading={commentIsLoading}/>;
 };
 
 export default ItemCollectionContainer;

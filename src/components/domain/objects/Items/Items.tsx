@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Header from 'next/head';
 
 import { ItemsHeader, ItemsBody } from '@/components/domain/elements/Items';
 import * as Model from '@/models';
@@ -19,6 +20,10 @@ const Items: React.FC<Props> = (props): React.ReactElement => {
 
   return (
     <>
+      <Header>
+        <title>Next HN | Item</title>
+      </Header>
+
       <ItemsHeader ids={ids} itemsPerPage={itemsPerPage} type={activeItemType} />
       <ItemsBody activeItems={activeItems} />
     </>
