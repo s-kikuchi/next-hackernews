@@ -1,13 +1,15 @@
 import * as React from 'react';
-import Link from 'next/link';
+import Header from "next/head";
 import styled from 'styled-components';
 
-import { ItemHeader } from '@/components/domain/elements/Item';
+import { ItemDetail } from '@/components/domain/elements/Item';
+import { Comments } from '@/components/domain/objects/Comments';
 import Spinner from '@/components/gui/parts/Spinner';
 import * as Model from '@/models';
 
 interface Props {
   item: Model.Item;
+  loading: boolean;
 }
 
 /**
@@ -15,9 +17,9 @@ interface Props {
  * @param props
  */
 const Item: React.FC<Props> = (props): React.ReactElement => {
-  const { item } = props;
+  const { item, loading } = props;
 
-  if (!item) {
+  if (!item || loading) {
     return (
       <Wrapper>
         <Spinner />
@@ -25,31 +27,18 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
     )
   } else {
     return (
-      <Wrapper>
-        <ItemHeader by={item.by} title={item.title} score={item.score} />
-        <div style={{ backgroundColor: '#fff', marginTop: '30px', padding: '0 .5em' }}>comment</div>
-      </Wrapper>
+      <>
+        <Header>
+          <title>Next HN | {item.title}</title>
+        </Header>
+
+        <Wrapper>
+          <ItemDetail by={item.by} title={item.title} score={item.score} />
+          <Comments item={item} />
+        </Wrapper>
+      </>
     );
   }
-};
-
-interface CommentProps {
-  item: Model.Item | any;
-}
-
-const Comment: React.FC<CommentProps> = (props) => {
-  const { item } = props;
-  return (
-    <li style={{ borderTop: '1px solid #eee', position: 'relative' }}>
-      <div>
-        <Link href={'/user/123'}>{item.by}</Link>
-      </div>
-      <div>{item.text}</div>
-      <div>
-        <a>open</a>
-      </div>
-    </li>
-  );
 };
 
 const Wrapper = styled.div`

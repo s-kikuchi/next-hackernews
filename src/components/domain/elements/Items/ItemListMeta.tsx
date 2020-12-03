@@ -13,8 +13,6 @@ interface Props {
 
 const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
   const { id, by, time, descendants } = props;
-  console.log(props, 'props');
-
   return (
     <Wrapper>
       <span>

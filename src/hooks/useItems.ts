@@ -31,7 +31,7 @@ const useItems = (ids: number[]) => {
         item.forEach((item) => {
           obj[item['id']]  = item;
         });
-        setItems((prevState) => ({ ...prevState, ...obj}))
+        setItems((prevState) => ({ ...prevState, ...obj }))
       })
     }
   }, [ids]);

@@ -25,7 +25,6 @@ const ItemListItem: React.FC<Props> = (props): React.ReactElement => {
         id={item.id}
         by={item.by}
         time={item.time}
-        type={item.type}
         descendants={item.descendants}
       />
     </ListItemLayout>

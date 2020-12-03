@@ -11,7 +11,7 @@ interface Props {
  * @param props
  * @constructor
  */
-const ItemHeader: React.FC<Props> = (props): React.ReactElement => {
+const ItemDetail: React.FC<Props> = (props): React.ReactElement => {
   const { title, by, score } = props;
   return (
     <div>
@@ -25,4 +25,4 @@ const ItemHeader: React.FC<Props> = (props): React.ReactElement => {
   );
 };
 
-export default ItemHeader;
+export default ItemDetail;

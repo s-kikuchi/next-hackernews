@@ -1,4 +1,3 @@
-import Comment from './Comment';
-import ItemHeader from './ItemHeader';
+import ItemDetail from './ItemDetail';
 
-export { ItemHeader, Comment };
+export { ItemDetail };
