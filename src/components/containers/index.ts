@@ -1,5 +1,11 @@
-import ItemCollectionContainer from '@/components/containers/ItemCollectionContainer';
-import ItemsCollectionContainer from '@/components/containers/ItemsCollectionContainer';
-import UserCollectionContainer from '@/components/containers/UserCollectionContainer';
+import HeaderContainer from './HeaderContainer';
+import ItemCollectionContainer from './ItemCollectionContainer';
+import ItemsCollectionContainer from './ItemsCollectionContainer';
+import UserCollectionContainer from './UserCollectionContainer';
 
-export { ItemsCollectionContainer, ItemCollectionContainer, UserCollectionContainer };
+export {
+  HeaderContainer,
+  ItemsCollectionContainer,
+  ItemCollectionContainer,
+  UserCollectionContainer
+};

@@ -7,7 +7,7 @@ const ItemCollectionContainer: React.FC = () => {
   // TODO: Look again custom hook ans state structure
   const commentIsLoading = useComments(item);
 
-  return <Item item={item} loading={commentIsLoading}/>;
+  return <Item item={item} loading={commentIsLoading} />;
 };
 
 export default ItemCollectionContainer;
