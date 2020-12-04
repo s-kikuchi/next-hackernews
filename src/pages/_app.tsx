@@ -1,14 +1,14 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
-
-import Header from '@/components/gui/groups/Header';
 import '@@/styles/globals.css';
+
+import HeaderContainer from '@/components/containers/HeaderContainer';
 
 const App = ({ Component, pageProps }: AppProps): any => {
   return (
     <RecoilRoot>
-      <Header />
+      <HeaderContainer />
       <Component {...pageProps} />
     </RecoilRoot>
   );

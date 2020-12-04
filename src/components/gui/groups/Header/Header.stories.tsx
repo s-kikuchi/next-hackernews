@@ -8,7 +8,8 @@ export default {
 };
 
 export const HeaderSample = (): React.ReactElement => {
+  const width = 800;
   return (
-    <Header />
+    <Header width={width} />
   )
 };

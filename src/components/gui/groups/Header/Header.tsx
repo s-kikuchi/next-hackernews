@@ -1,11 +1,17 @@
 import * as React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { PRIMARY } from '@/utils/constants';
 
-import { TABLET_MEDIA, MOBILE_MEDIA } from '@/utils/constants';
+import { PRIMARY, TABLET_MEDIA, MOBILE_MEDIA, MOBILE_WINDOW } from '@/utils/constants';
+import { Burger } from '@/components/gui/parts/Burger';
 
-const Header: React.FC = () => {
+interface Props {
+  width: number
+}
+
+const Header: React.FC<Props> = (props) => {
+  const { width } = props;
+
   return (
     <Wrapper>
       <Nav>
@@ -24,20 +30,24 @@ const Header: React.FC = () => {
         <Link href="/item?type=job">
           <StyledA>Job</StyledA>
         </Link>
-        <a
-          style={{
-            color: '#fff',
-            fontWeight: 300,
-            fontSize: '1em',
-            margin: 0,
-            float: 'right',
-            lineHeight: '24px',
-          }}
-          target="_blank"
-          href="https://github.com/s-kikuchi/next-hackernews"
-        >
-          Git Hub
-        </a>
+        { width > MOBILE_WINDOW.width ?
+          <a
+            style={{
+              color: '#fff',
+              fontWeight: 300,
+              fontSize: '1em',
+              margin: 0,
+              float: 'right',
+              lineHeight: '24px',
+            }}
+            target="_blank"
+            href="https://github.com/s-kikuchi/next-hackernews"
+          >
+            Git Hub
+          </a>
+          :
+          null
+        }
       </Nav>
     </Wrapper>
   );
