@@ -7,12 +7,8 @@ interface Props {
 
 const CommentsHeader: React.FC<Props> = (props) => {
   const { descendants } = props;
-  return (
-    <Wrapper>
-      {descendants} comments
-    </Wrapper>
-  )
-}
+  return <Wrapper>{descendants} comments</Wrapper>;
+};
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -21,4 +17,4 @@ const Wrapper = styled.div`
   padding: 0;
 `;
 
-export { CommentsHeader }
+export { CommentsHeader };

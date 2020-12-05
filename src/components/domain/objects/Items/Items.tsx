@@ -7,8 +7,8 @@ import * as Model from '@/models';
 interface Props {
   ids: number[];
   itemsPerPage: number;
-  activeItemType: string
-  activeItems: Model.Item[]
+  activeItemType: string;
+  activeItems: Model.Item[];
 }
 
 /**

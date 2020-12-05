@@ -11,7 +11,7 @@ const logRequests = !!process.env.DEBUG_API;
 
 const fetch = (child) => {
   logRequests && console.log(`fetching ${child} from api`);
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     api.child(child).once('value', (snapshot) => {
       const val = snapshot.val();
       if (val) val.__lastUpdated = Date.now();

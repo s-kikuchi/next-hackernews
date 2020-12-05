@@ -10,14 +10,14 @@ const getWindowDimensions = () => {
   }
   return {
     width,
-    height
+    height,
   };
-}
+};
 
 export const windowDimensionsState = atom({
   key: 'windowDimensionsState',
-  default: getWindowDimensions()
-})
+  default: getWindowDimensions(),
+});
 
 const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useRecoilState(windowDimensionsState);
@@ -25,14 +25,14 @@ const useWindowDimensions = () => {
     if (process.browser) {
       const onResize = () => {
         setWindowDimensions(getWindowDimensions);
-      }
+      };
       window.addEventListener('resize', onResize);
       return () => {
-        window.removeEventListener('resize', onResize)
-      }
+        window.removeEventListener('resize', onResize);
+      };
     }
-  }, [])
+  }, []);
   return windowDimensions;
-}
+};
 
-export { useWindowDimensions }
+export { useWindowDimensions };

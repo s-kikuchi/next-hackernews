@@ -7,5 +7,5 @@ export {
   HeaderContainer,
   ItemsCollectionContainer,
   ItemCollectionContainer,
-  UserCollectionContainer
+  UserCollectionContainer,
 };

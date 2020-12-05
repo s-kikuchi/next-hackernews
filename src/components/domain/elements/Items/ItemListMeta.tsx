@@ -16,19 +16,17 @@ const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
   return (
     <Wrapper>
       <span>
-        by <Link href={'/user/' + by}>{by}</Link>
+        by <Link href={'/users/' + by}>{by}</Link>
       </span>
       <span> {timeAgo(time)} ago </span>
       {/* Don't remove below section when descendants are 0, but remove when descendants === undefined */}
-      { descendants !== undefined ?
+      {descendants !== undefined ? (
         <span>
-          <Link href={'/item/' + id}>
+          <Link href={'/items/' + id}>
             <a>{descendants} comments</a>
           </Link>
         </span>
-        :
-        null
-      }
+      ) : null}
     </Wrapper>
   );
 };

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { atom, useRecoilState } from 'recoil'
+import { atom, useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
 import { fetchUser } from '@/repositories';
 import * as Model from '@/models';
 
 const initialState: {
-  [id: number]: Model.User[]
-} = { };
+  [id: number]: Model.User[];
+} = {};
 
 export const usersState = atom({
   key: 'usersState',
-  default: initialState
+  default: initialState,
 });
 
 const useUsers = () => {
@@ -23,16 +23,16 @@ const useUsers = () => {
     if (router.asPath !== router.route) {
       // @ts-ignore
       if (users[id]) {
-        return
+        return;
       }
       fetchUser(id).then((user: Model.User) => {
         const obj = Object.assign({}, { [user.id]: user });
-        setUsers((prevState) => ({ ...prevState, ...obj }))
-      })
+        setUsers((prevState) => ({ ...prevState, ...obj }));
+      });
     }
   }, [router]);
 
-  return { users, id }
+  return { users, id };
 };
 
 export { useUsers };

@@ -27,7 +27,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
       <Wrapper>
         <Spinner />
       </Wrapper>
-    )
+    );
   } else {
     return (
       <Wrapper>

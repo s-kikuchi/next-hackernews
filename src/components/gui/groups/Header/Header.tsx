@@ -3,10 +3,9 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import { PRIMARY, TABLET_MEDIA, MOBILE_MEDIA, MOBILE_WINDOW } from '@/utils/constants';
-import { Burger } from '@/components/gui/parts/Burger';
 
 interface Props {
-  width: number
+  width: number;
 }
 
 const Header: React.FC<Props> = (props) => {
@@ -15,22 +14,22 @@ const Header: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <Nav>
-        <Link href="/item?type=top">
+        <Link href="/items?type=top">
           <StyledA>Top</StyledA>
         </Link>
-        <Link href="/item?type=new">
+        <Link href="/items?type=new">
           <StyledA>New</StyledA>
         </Link>
-        <Link href="/item?type=show">
+        <Link href="/items?type=show">
           <StyledA>Show</StyledA>
         </Link>
-        <Link href="/item?type=ask">
+        <Link href="/items?type=ask">
           <StyledA>Ask</StyledA>
         </Link>
-        <Link href="/item?type=job">
+        <Link href="/items?type=job">
           <StyledA>Job</StyledA>
         </Link>
-        { width > MOBILE_WINDOW.width ?
+        {width > MOBILE_WINDOW.width ? (
           <a
             style={{
               color: '#fff',
@@ -45,9 +44,7 @@ const Header: React.FC<Props> = (props) => {
           >
             Git Hub
           </a>
-          :
-          null
-        }
+        ) : null}
       </Nav>
     </Wrapper>
   );

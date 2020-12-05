@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { ListLayout } from '@/components/layouts';
-import { CommentsHeader } from '@/components/domain/elements/Comments'
+import { CommentsHeader } from '@/components/domain/elements/Comments';
 import { CommentListItem } from '@/components/domain/elements/Comments';
 import { itemsState } from '@/hooks/useItems';
 import * as Model from '@/models';
@@ -18,12 +18,12 @@ const Comments: React.FC<Props> = (props) => {
     <>
       <CommentsHeader descendants={item.descendants} />
       <ListLayout>
-        { item.kids.map((kid: number) => {
-          return <CommentListItem key={kid} item={items[kid]} />
+        {item.kids.map((kid: number) => {
+          return <CommentListItem key={kid} item={items[kid]} />;
         })}
       </ListLayout>
     </>
-  )
-}
+  );
+};
 
 export default Comments;

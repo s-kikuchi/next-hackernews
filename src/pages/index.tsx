@@ -5,7 +5,7 @@ const Index = (): React.ReactElement => {
   React.useEffect(() => {
     const { pathname } = Router;
     if (pathname == '/') {
-      Router.push('/item/?type=top');
+      Router.push('/items/?type=top');
     }
   });
   return <div>Loading</div>;

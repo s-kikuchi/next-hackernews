@@ -24,7 +24,7 @@ const ItemListTitle: React.FC<Props> = (props): React.ReactElement => {
           </a>
         </>
       ) : (
-        <Link href={'/item/' + id}>{title}</Link>
+        <Link href={'/items/' + id}>{title}</Link>
       )}
     </Wrapper>
   );

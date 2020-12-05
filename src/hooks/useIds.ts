@@ -5,9 +5,8 @@ import { atom, useRecoilState } from 'recoil';
 import { fetchIdsByType } from '@/repositories';
 
 const initialState: {
-  [type: string]: number[]
-} = {
-};
+  [type: string]: number[];
+} = {};
 
 export const idsState = atom({
   key: 'idsState',
@@ -24,19 +23,19 @@ const useIds = () => {
     if (router.asPath !== router.route) {
       // @ts-ignore
       fetchIdsByType(type).then((ids: number[]) => {
-        setIds(prevState => {
+        setIds((prevState) => {
           return {
             ...prevState,
             // @ts-ignore
-            [type]: ids
-          }
-        })
-      })
+            [type]: ids,
+          };
+        });
+      });
     }
   }, [router]);
 
   // @ts-ignore
-  return ids[type]
+  return ids[type];
 };
 
 export { useIds };

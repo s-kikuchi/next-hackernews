@@ -7,7 +7,7 @@ import * as Model from '@/models';
 
 export const itemsState = atom({
   key: 'itemsState',
-  default: [] as Model.Item[]
+  default: [] as Model.Item[],
 });
 
 const useItems = (ids: number[]) => {
@@ -16,7 +16,7 @@ const useItems = (ids: number[]) => {
 
   React.useEffect(() => {
     if (!ids || !ids.length) {
-      return
+      return;
     }
 
     ids = ids.filter((id) => {
@@ -29,14 +29,14 @@ const useItems = (ids: number[]) => {
       fetchItems(ids).then((item) => {
         const obj = {};
         item.forEach((item) => {
-          obj[item['id']]  = item;
+          obj[item['id']] = item;
         });
-        setItems((prevState) => ({ ...prevState, ...obj }))
-      })
+        setItems((prevState) => ({ ...prevState, ...obj }));
+      });
     }
   }, [ids]);
 
-  return { items }
+  return { items };
 };
 
 export const activeItemsState = atom({
@@ -44,16 +44,17 @@ export const activeItemsState = atom({
   default: {
     activeItems: [] as Model.Item[],
     itemsPerPage: 20 as number,
-    activeItemType: null as null | string
-  }
+    activeItemType: null as null | string,
+  },
 });
 
 const useActiveItems = (ids: number[], items: {}) => {
   const router = useRouter();
   const { type } = router.query;
 
-  const [{ activeItems, itemsPerPage, activeItemType }, setActiveItemsState]
-    = useRecoilState(activeItemsState);
+  const [{ activeItems, itemsPerPage, activeItemType }, setActiveItemsState] = useRecoilState(
+    activeItemsState,
+  );
 
   React.useEffect(() => {
     if (!ids || !ids.length || !items) {
@@ -71,15 +72,15 @@ const useActiveItems = (ids: number[], items: {}) => {
       const end = page * itemsPerPage;
 
       const activeIds = ids.slice(start, end);
-      const newActiveItems = activeIds.map(id => items[id]).filter(_ => _);
+      const newActiveItems = activeIds.map((id) => items[id]).filter((_) => _);
       // @ts-ignore
       setActiveItemsState((prevState) => ({
         ...prevState,
         activeItems: [...newActiveItems],
-        activeItemType: type
+        activeItemType: type,
       }));
     }
   }, [router, ids, items]);
-  return { activeItems, itemsPerPage, activeItemType }
+  return { activeItems, itemsPerPage, activeItemType };
 };
-export { useItems, useActiveItems }
+export { useItems, useActiveItems };

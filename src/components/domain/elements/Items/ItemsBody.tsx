@@ -13,14 +13,12 @@ const ItemsBody: React.FC<Props> = (props) => {
   const { activeItems } = props;
 
   if (!activeItems.length) {
-    return (
-      <Spinner />
-    )
+    return <Spinner />;
   } else {
     return (
       <Wrapper>
         <ListLayout>
-          { activeItems.map((activeItem) => {
+          {activeItems.map((activeItem) => {
             return <ItemListItem item={activeItem} key={activeItem.id} />;
           })}
         </ListLayout>

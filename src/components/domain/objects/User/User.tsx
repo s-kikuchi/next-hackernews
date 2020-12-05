@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import * as Model from '@/models';
 import { timeAgo } from '@/utils/filter';
-import Spinner from "@/components/gui/parts/Spinner";
-import Header from "next/head";
+import Spinner from '@/components/gui/parts/Spinner';
+import Header from 'next/head';
 
 interface Props {
   user: Model.User | any;

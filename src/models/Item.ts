@@ -10,7 +10,6 @@ interface Item {
   __lastUpdated: number;
   kids: number[];
   text: string | any;
-
 }
 
 export default Item;

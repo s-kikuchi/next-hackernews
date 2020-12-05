@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Header from "next/head";
+import Header from 'next/head';
 import styled from 'styled-components';
 
 import { ItemDetail } from '@/components/domain/elements/Item';
@@ -24,7 +24,7 @@ const Item: React.FC<Props> = (props): React.ReactElement => {
       <Wrapper>
         <Spinner />
       </Wrapper>
-    )
+    );
   } else {
     return (
       <>
