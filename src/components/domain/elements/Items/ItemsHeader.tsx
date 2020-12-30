@@ -34,7 +34,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
         {currentPage() <= 1 ? (
           <StyledA>&lt; prev</StyledA>
         ) : (
-          <Link href={`/item?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
+          <Link href={`/items?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
         )}
         <span>
           {' '}
@@ -43,7 +43,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
         {maxPage() === currentPage() ? (
           <StyledA>more &gt;</StyledA>
         ) : (
-          <Link href={`/item?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
+          <Link href={`/items?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
         )}
       </Wrapper>
     );
