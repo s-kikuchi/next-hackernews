@@ -47,8 +47,25 @@ In side `components` directory, there are `containers`, `domain`, `gui`, and `la
 | `gui/parts` | GUI component that can't be split any further |
 | `layouts/` | Layout components |
 
-## Tests
-WIP
+## Test
+All test code are inside `src/__tests__`.
+
+Run `npm run test` if you want to test.
+
+### Test direction
+
+In this project, execute testing in the following 3 phases of tests.
+- Unit
+- Integration
+- E2E
+
+Moreover, these are the features of tests in each phase.
+ 
+| Test | Isolated / Integrated | Environment | Data Source |
+| :--- | :--- | :--- | :--- |
+| Unit | Isolated | Virtual DOM (Node) | Mock (Local) |
+| Integration | Integrated | Virtual DOM (Node) | Mock (Local) |
+| E2E | Integrated | Real DOM (Browser) | Response (API) |
 
 ## Storybook 
 ```
