@@ -15,35 +15,24 @@ export function Header(props: Props) {
     <Wrapper>
       <Nav>
         <Link href="/items?type=top">
-          <StyledA>Top</StyledA>
+          <StyledLink>Top</StyledLink>
         </Link>
         <Link href="/items?type=new">
-          <StyledA>New</StyledA>
+          <StyledLink>New</StyledLink>
         </Link>
         <Link href="/items?type=show">
-          <StyledA>Show</StyledA>
+          <StyledLink>Show</StyledLink>
         </Link>
         <Link href="/items?type=ask">
-          <StyledA>Ask</StyledA>
+          <StyledLink>Ask</StyledLink>
         </Link>
         <Link href="/items?type=job">
-          <StyledA>Job</StyledA>
+          <StyledLink>Job</StyledLink>
         </Link>
         {width > MOBILE_WINDOW.width ? (
-          <a
-            style={{
-              color: '#fff',
-              fontWeight: 300,
-              fontSize: '1em',
-              margin: 0,
-              float: 'right',
-              lineHeight: '24px',
-            }}
-            target="_blank"
-            href="https://github.com/s-kikuchi/next-hackernews"
-          >
+          <GitHubLink>
             Git Hub
-          </a>
+          </GitHubLink>
         ) : null}
       </Nav>
     </Wrapper>
@@ -73,7 +62,7 @@ const Nav = styled.nav`
   }
 `;
 
-const StyledA = styled.a`
+const StyledLink = styled.a`
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.15s ease;
   line-height: 24px;
@@ -87,3 +76,12 @@ const StyledA = styled.a`
     color: #fff;
   }
 `;
+
+const GitHubLink = styled.a`
+  color: #fff;
+  font-weight: 300;
+  font-size: 1em;
+  margin: 0;
+  float: right;
+  line-height: 24px;
+`

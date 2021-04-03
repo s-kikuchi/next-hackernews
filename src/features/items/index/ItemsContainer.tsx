@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Items } from '@/common/components/domain/objects/Items';
 import { useIds, useActiveItems, useItems } from '@/common/hooks';
 
-const ItemsCollectionContainer: React.FC = (): React.ReactElement => {
+export function ItemsContainer(): React.ReactElement {
   const ids = useIds();
   const { items } = useItems(ids);
   const { activeItems, itemsPerPage, activeItemType } = useActiveItems(ids, items);
@@ -16,6 +16,4 @@ const ItemsCollectionContainer: React.FC = (): React.ReactElement => {
       activeItems={activeItems}
     />
   );
-};
-
-export default ItemsCollectionContainer;
+}

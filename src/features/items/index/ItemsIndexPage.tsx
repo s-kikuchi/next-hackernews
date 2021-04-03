@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react';
-
-import { ItemsCollectionContainer } from '@/common/components/containers';
-import { MainPageLayout } from '@/common/components/Layouts';
+import { ItemsContainer } from '@/features/items/index/ItemsContainer';
+import { MainPageLayout } from '@/common/components/Layout';
 
 function ItemsIndexPage(): ReactElement {
   return (
     <MainPageLayout>
-      <ItemsCollectionContainer />
+      <ItemsContainer />
     </MainPageLayout>
   );
 }

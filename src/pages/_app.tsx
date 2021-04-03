@@ -3,12 +3,12 @@ import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import '@@/styles/globals.css';
 
-import { HeaderContainer } from '@/common/components/containers/HeaderContainer';
+import { FlexibleHeader } from '@/common/components/Header/FlexibleHeader';
 
 export default function App({ Component, pageProps }: AppProps): any {
   return (
     <RecoilRoot>
-      <HeaderContainer />
+      <FlexibleHeader />
       <Component {...pageProps} />
     </RecoilRoot>
   );
