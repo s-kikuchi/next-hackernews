@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from './Footer';
+import { Footer } from '@/common/components/Footer/Footer';
 
 export default {
-  title: 'gui / groups / Footer',
+  title: 'Footer',
   component: Footer,
-  includeStories: ['FooterSample'],
+  includeStories: ['Sample'],
 };
 
-export const FooterSample = (): React.ReactElement => <Footer />;
+export const Sample = (): React.ReactElement => <Footer />;

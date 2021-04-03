@@ -1,1 +1,1 @@
-export { default } from './Footer';
+import { Footer } from '@/common/components/Footer/Footer';

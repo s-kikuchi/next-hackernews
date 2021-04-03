@@ -1,5 +1,3 @@
-import ListItemLayout from './ListItemLayout';
-import ListLayout from './ListLayout';
-import MainLayout from './MainLayout';
+import { MainPageLayout } from '@/common/components/Layouts/MainPageLayout';
 
-export { ListItemLayout, ListLayout, MainLayout };
+export { MainPageLayout };

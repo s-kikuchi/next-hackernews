@@ -1,10 +1,4 @@
-/**
- * Layout component for ListItem component (./ListItem.tsx)
- * @listStyleType { default: none }
- * @padding { default: 0 }
- * @margin { default: 0 }
- */
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
 
@@ -18,16 +12,20 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const ListLayout: React.FC<Props> = (props): React.ReactElement => {
+/**
+ * UnorderedList
+ * @listStyleType { default: none }
+ * @padding { default: 0 }
+ * @margin { default: 0 }
+ */
+export function UnorderedList(props): React.ReactElement {
   const { listStyleType, padding, margin, children } = props;
 
   return <Wrapper {...{ listStyleType, padding, margin }}>{children}</Wrapper>;
-};
+}
 
 const Wrapper = styled.ul`
   list-style-type: ${(props: Props) => props.listStyleType || 'none'};
   padding: ${(props: Props) => props.padding || 0};
   margin: ${(props: Props) => props.margin || 0};
 `;
-
-export default ListLayout;

@@ -1,16 +1,16 @@
-/**
- * List component
- */
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-const ListCommentLayout = ({ children, ...props }: Props): React.ReactElement => {
+/**
+ * List component
+ */
+export function ListCommentLayout({ children, ...props }: Props): React.ReactElement {
   return <Wrapper {...props}>{children}</Wrapper>;
-};
+}
 
 const Wrapper = styled.li`
   background-color: #fff;
@@ -21,5 +21,3 @@ const Wrapper = styled.li`
   grid-template-rows: 32px 12px;
   grid-template-columns: 80px 1fr;
 `;
-
-export default ListCommentLayout;

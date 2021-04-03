@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import * as Model from '@/common/models';
 import { timeAgo } from '@/common/utils/filter';
-import Spinner from '@/common/components/Spinner';
+import { Spinner } from '@/common/components/Spinner';
 import Header from 'next/head';
 
 interface Props {

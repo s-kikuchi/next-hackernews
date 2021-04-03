@@ -1,13 +1,12 @@
 import * as React from 'react';
+import { MainPageLayout } from '@/common/components/Layouts';
 
-import { MainLayout } from '@/common/components/Layouts';
-
-const Custom404 = (): React.ReactElement => {
+function Custom404(): React.ReactElement {
   return (
-    <MainLayout paddingTop={'80px'}>
+    <MainPageLayout paddingTop={'80px'}>
       <div style={{ fontWeight: 800, fontSize: '40px' }}>404 Not Found</div>
-    </MainLayout>
+    </MainPageLayout>
   );
-};
+}
 
 export default Custom404;

@@ -1,1 +1,3 @@
-export { default } from './Spinner';
+import { Spinner } from '@/common/components/Spinner/Spinner';
+
+export { Spinner }

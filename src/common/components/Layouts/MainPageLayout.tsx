@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
 
@@ -7,9 +7,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const MainLayout: React.FC<Props> = ({ children, ...props }) => {
+export function MainPageLayout({ children, ...props }: Props) {
   return <Wrapper {...props}>{children}</Wrapper>;
-};
+}
 
 const Wrapper = styled.main`
   // this styles are used for all components
@@ -20,5 +20,3 @@ const Wrapper = styled.main`
   // this can be changed
   padding-top: ${(props: Props) => props.paddingTop || '0px'};
 `;
-
-export default MainLayout;

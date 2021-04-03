@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Spinner from '@/common/components/Spinner';
+import { Spinner } from '@/common/components/Spinner';
 
 interface Props {
   ids: number[];

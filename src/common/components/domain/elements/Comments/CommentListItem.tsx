@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
-import { ListLayout } from '@/common/components/Layouts';
+import { UnorderedList } from '@/common/components/List';
 import Link from 'next/link';
 import { itemsState } from '@/common/hooks/useItems';
 import * as Model from '@/common/models';
@@ -27,11 +27,11 @@ const CommentListItem: React.FC<Props> = (props) => {
         </div>
         <div dangerouslySetInnerHTML={{ __html: item.text }} />
         {item.kids && item.kids.length ? (
-          <ListLayout>
+          <UnorderedList>
             {item.kids.map((kid) => {
               return <CommentListItem key={kid} item={items[kid]} />;
             })}
-          </ListLayout>
+          </UnorderedList>
         ) : null}
       </Wrapper>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
-import Spinner from './Spinner';
+import { Spinner } from '@/common/components/Spinner';
 
 export default {
-  title: 'gui / parts / Spinner',
+  title: 'Spinner',
   component: Spinner,
-  includeStories: ['SpinnerSample'],
+  includeStories: ['Sample'],
 };
 
-export const SpinnerSample = (): React.ReactElement => <Spinner />;
+export const Sample = (): React.ReactElement => <Spinner />;

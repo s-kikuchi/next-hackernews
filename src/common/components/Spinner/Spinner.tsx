@@ -1,17 +1,17 @@
-/**
- * Spinner component
- */
-import * as React from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { PRIMARY } from '@/common/utils/constants';
 
-const Spinner = (): React.ReactElement => {
+/**
+ * Spinner component
+ */
+export function Spinner(): React.ReactElement {
   return (
     <Wrapper width={'22px'} height={'22px'} viewBox={'0 0 44 44'}>
       <Circle fill={'none'} strokeWidth={4} strokeLinecap={'round'} cx={22} cy={22} r={20} />
     </Wrapper>
   );
-};
+}
 
 const rotator = keyframes`
   0% {
@@ -49,4 +49,3 @@ const Circle = styled.circle`
   transform-origin: center;
   animation: ${dash} 1.4s ease-in-out infinite;
 `;
-export default Spinner;

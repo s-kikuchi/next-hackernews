@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './Header';
+import { Header } from '@/common/components/Header/Header';
 
 export default {
-  title: 'gui / groups / Header',
+  title: 'Header',
   component: Header,
-  includeStories: ['HeaderSample'],
+  includeStories: ['Sample'],
 };
 
-export const HeaderSample = (): React.ReactElement => {
+export const Sample = (): React.ReactElement => {
   const width = 800;
   return <Header width={width} />;
 };

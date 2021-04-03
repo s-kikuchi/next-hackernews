@@ -3,15 +3,13 @@ import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import '@@/styles/globals.css';
 
-import HeaderContainer from '@/common/components/containers/HeaderContainer';
+import { HeaderContainer } from '@/common/components/containers/HeaderContainer';
 
-const App = ({ Component, pageProps }: AppProps): any => {
+export default function App({ Component, pageProps }: AppProps): any {
   return (
     <RecoilRoot>
       <HeaderContainer />
       <Component {...pageProps} />
     </RecoilRoot>
   );
-};
-
-export default App;
+}

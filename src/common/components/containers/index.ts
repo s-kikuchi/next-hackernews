@@ -1,4 +1,5 @@
-import HeaderContainer from './HeaderContainer';
+import { HeaderContainer } from '@/common/components/containers/HeaderContainer';
+
 import ItemCollectionContainer from './ItemCollectionContainer';
 import ItemsCollectionContainer from './ItemsCollectionContainer';
 import UserCollectionContainer from './UserCollectionContainer';

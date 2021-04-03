@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ interface Props {
   width: number;
 }
 
-const Header: React.FC<Props> = (props) => {
+export function Header(props: Props) {
   const { width } = props;
 
   return (
@@ -48,9 +48,7 @@ const Header: React.FC<Props> = (props) => {
       </Nav>
     </Wrapper>
   );
-};
-
-export default Header;
+}
 
 const Wrapper = styled.header`
   background-color: ${PRIMARY};

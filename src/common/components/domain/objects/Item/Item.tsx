@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import Header from 'next/head';
 import styled from 'styled-components';
 
 import { ItemDetail } from '@/common/components/domain/elements/Item';
 import { Comments } from '@/common/components/domain/objects/Comments';
-import Spinner from '@/common/components/Spinner';
+import { Spinner } from '@/common/components/Spinner';
 import * as Model from '@/common/models';
 
 interface Props {

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 
-import { ListItemLayout } from '@/common/components/Layouts';
+import { List } from '@/common/components/List';
 import { ItemListScore, ItemListTitle, ItemListMeta } from '@/common/components/domain/elements/Items/index';
 import * as Model from '@/common/models';
 
@@ -18,11 +18,11 @@ const ItemListItem: React.FC<Props> = (props): React.ReactElement => {
   const { item } = props;
 
   return (
-    <ListItemLayout>
+    <List>
       <ItemListScore score={item.score} />
       <ItemListTitle id={item.id} title={item.title} url={item.url} />
       <ItemListMeta id={item.id} by={item.by} time={item.time} descendants={item.descendants} />
-    </ListItemLayout>
+    </List>
   );
 };
 

@@ -1,14 +1,3 @@
-import * as React from 'react';
+import { UserDetailPage } from '@/features/users/detail/UserDetailPage';
 
-import { MainLayout } from '@/common/components/Layouts';
-import { UserCollectionContainer } from '@/common/components/containers';
-
-export default (): React.ReactElement => {
-  return (
-    <>
-      <MainLayout paddingTop={'65px'}>
-        <UserCollectionContainer />
-      </MainLayout>
-    </>
-  );
-};
+export default UserDetailPage;

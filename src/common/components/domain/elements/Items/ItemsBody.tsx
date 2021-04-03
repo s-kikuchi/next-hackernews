@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { ListLayout } from '@/common/components/Layouts';
+import { UnorderedList } from '@/common/components/List';
 import { ItemListItem } from '@/common/components/domain/elements/Items/index';
 import * as Model from '@/common/models';
-import Spinner from '@/common/components/Spinner';
+import { Spinner } from '@/common/components/Spinner';
 
 interface Props {
   activeItems: Model.Item[] | any;
@@ -17,11 +17,11 @@ const ItemsBody: React.FC<Props> = (props) => {
   } else {
     return (
       <Wrapper>
-        <ListLayout>
+        <UnorderedList>
           {activeItems.map((activeItem) => {
             return <ItemListItem item={activeItem} key={activeItem.id} />;
           })}
-        </ListLayout>
+        </UnorderedList>
       </Wrapper>
     );
   }
