@@ -28,29 +28,22 @@ This project follows [Presentational + container components](https://medium.com/
 
 | Directory | Inside |
 | :--- | :--- |
-| `components/` | All components that draw GUI and container |
-| `hooks/` | Custom hooks |
-| `models/` | Interfaces |
-| `pages/` | Page components |
-| `repositories/` | Functions that fetch data from backend api |
-| `utils/` | Functions for screen drawing |
+| `common/` | UI components, functions, or configs that use commonly |
+| `features/` | Directories have domain components, functions, utilities |
+| `pages/` | Nextjs page routing |
 
-### components
-In side `components` directory, there are `containers`, `domain`, `gui`, and `layouts` directories.
+### common
+In side `common` directory, there are `api`, `components`, `hooks`, and `utils` directories.
 
 | Directory | Inside |
 | :--- | :--- |
-| `containers/` | Components that fetch data from backend and inject state to other components |
-| `domain/objects` | Domain objects |
-| `domain/elements` | Domain elements for domain objects  |
-| `gui/group` | GUI component consisting of GUI parts |
-| `gui/parts` | GUI component that can't be split any further |
-| `layouts/` | Layout components |
+| `api/` | Functions and types for fetching data from backend |
+| `components/` |  Re-useful UI components |
+| `hooks/` | Custom hooks |
+| `utils/` | Utility functions that don't have effect and constants |
 
 ## Test
-All test code are inside `src/__tests__`.
-
-Run `npm run test` if you want to test.
+Tests are inside directory that related to.
 
 ### Test direction
 
