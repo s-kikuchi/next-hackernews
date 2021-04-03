@@ -1,12 +1,4 @@
-import * as React from 'react';
+import { ItemIdPage } from '@/features/items/detail/ItemDetailPage';
 
-import { MainLayout } from '@/components/layouts';
-import { ItemCollectionContainer } from '@/components/containers';
 
-export default (): React.ReactElement => {
-  return (
-    <MainLayout paddingTop={'65px'}>
-      <ItemCollectionContainer />
-    </MainLayout>
-  );
-};
+export default ItemIdPage;

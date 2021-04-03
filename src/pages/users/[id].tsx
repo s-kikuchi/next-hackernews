@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { MainLayout } from '@/components/layouts';
-import { UserCollectionContainer } from '@/components/containers';
+import { MainLayout } from '@/common/components/Layouts';
+import { UserCollectionContainer } from '@/common/components/containers';
 
 export default (): React.ReactElement => {
   return (

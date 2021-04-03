@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MainLayout } from '@/components/layouts';
+import { MainLayout } from '@/common/components/Layouts';
 
 const Custom404 = (): React.ReactElement => {
   return (

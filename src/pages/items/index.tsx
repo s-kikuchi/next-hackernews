@@ -1,14 +1,3 @@
-import * as React from 'react';
+import { ItemsIndexPage } from '@/features/items/index/ItemsIndexPage';
 
-import { ItemsCollectionContainer } from '@/components/containers/';
-import { MainLayout } from '@/components/layouts';
-
-const Item: React.FC = () => {
-  return (
-    <MainLayout>
-      <ItemsCollectionContainer />
-    </MainLayout>
-  );
-};
-
-export default Item;
+export default ItemsIndexPage;
