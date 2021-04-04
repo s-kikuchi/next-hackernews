@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 
@@ -11,20 +11,16 @@ const useItem = (): Model.Item => {
   const [items, setItems] = useRecoilState(itemsState);
   const { id } = router.query;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (router.asPath !== router.route) {
-      // @ts-ignore
-      if (!items[id]) {
+      if (!items[id as string]) {
         fetchItem(Number(id)).then((item) => {
-          // @ts-ignore
-          setItems((prevState) => ({ ...prevState, [id]: item }));
+          setItems((prevState) => ({ ...prevState, [id as string]: item }));
         });
       }
     }
   }, [router]);
-
-  // @ts-ignore
-  return items[id];
+  return items[id as string];
 };
 
 export { useItem };

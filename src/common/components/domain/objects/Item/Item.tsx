@@ -47,4 +47,5 @@ const Wrapper = styled.div`
   padding-left: 3em;
   padding-right: 3em;
 `;
+
 export default Item;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { atom, useRecoilState } from 'recoil';
 
@@ -14,28 +14,24 @@ export const idsState = atom({
 });
 
 const useIds = () => {
-  // const [ids, setIds] = React.useState([]);
   const [ids, setIds] = useRecoilState(idsState);
   const router = useRouter();
   const { type } = router.query;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (router.asPath !== router.route) {
-      // @ts-ignore
-      fetchIdsByType(type).then((ids: number[]) => {
+      fetchIdsByType(type as string).then((ids: number[]) => {
         setIds((prevState) => {
           return {
             ...prevState,
-            // @ts-ignore
-            [type]: ids,
+            [type as string]: ids,
           };
         });
       });
     }
   }, [router]);
 
-  // @ts-ignore
-  return ids[type];
+  return ids[type as string];
 };
 
 export { useIds };

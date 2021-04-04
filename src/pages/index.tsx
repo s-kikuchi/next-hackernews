@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import Router from 'next/router';
+import { Spinner } from '@/common/components/Spinner';
 
 const Index = (): React.ReactElement => {
   React.useEffect(() => {
@@ -8,7 +9,7 @@ const Index = (): React.ReactElement => {
       Router.push('/items/?type=top');
     }
   });
-  return <div>Loading</div>;
+  return <Spinner />;
 };
 
 export default Index;
