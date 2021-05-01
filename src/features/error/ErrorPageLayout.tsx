@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-export function ErrorPageLayout({ children, ...props }: Props) {
+export function ErrorPageLayout({ children, ...props }: Props): ReactElement {
   return <Wrapper {...props}>{children}</Wrapper>;
 }
 

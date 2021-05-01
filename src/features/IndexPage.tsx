@@ -1,11 +1,11 @@
 import React from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { Spinner } from '@/common/components/Spinner';
 
 function IndexPage(): React.ReactElement {
-  const router = useRouter()
+  const router = useRouter();
   React.useEffect(() => {
-    const { pathname } = router
+    const { pathname } = router;
     if (pathname == '/') {
       router.push('/items/?type=top');
     }

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { ErrorPageLayout } from '@/features/error/ErrorPageLayout';
 
-export function ErrorPage() {
+export function ErrorPage(): ReactElement {
   return (
     <ErrorPageLayout>
       <Wrapper>404 Not Found</Wrapper>
