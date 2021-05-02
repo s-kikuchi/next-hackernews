@@ -1,11 +1,13 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import User from '@/features/users/detail/User';
-import { useUsers } from '@/common/hooks';
+import { useUser } from '@/common/hooks/swr/useUser';
 
 export function UserContainer(): React.ReactElement {
-  const { users, id } = useUsers();
+  const router = useRouter();
+  const { id } = router.query;
+  const { data: user, error } = useUser(id as string);
 
-  // @ts-ignore
-  return <User user={users[id]} />;
+  return <User user={user} error={error} />;
 }
