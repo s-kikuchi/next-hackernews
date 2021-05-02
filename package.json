@@ -21,7 +21,8 @@
     "react": "^16.14.0",
     "react-dom": "16.14.0",
     "recoil": "0.0.13",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "swr": "^0.5.5"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.0.26",
