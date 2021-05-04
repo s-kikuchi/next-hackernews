@@ -1,3 +1,3 @@
-import { ItemIdPage } from '@/features/items/detail/ItemDetailPage';
+import { ItemDetailPage } from '@/features/items/detail/ItemDetailPage';
 
-export default ItemIdPage;
+export default ItemDetailPage;
