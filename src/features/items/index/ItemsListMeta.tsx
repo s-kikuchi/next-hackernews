@@ -11,7 +11,7 @@ interface Props {
   descendants: number | undefined;
 }
 
-const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
+export function ItemsListMeta(props: Props): React.ReactElement {
   const { id, by, time, descendants } = props;
   return (
     <Wrapper>
@@ -29,7 +29,7 @@ const ItemListMeta: React.FC<Props> = (props): React.ReactElement => {
       ) : null}
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   grid-row: 2 / 3;
@@ -46,5 +46,3 @@ const Wrapper = styled.div`
     }
   }
 `;
-
-export default ItemListMeta;

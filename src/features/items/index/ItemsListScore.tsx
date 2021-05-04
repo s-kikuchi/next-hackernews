@@ -7,13 +7,10 @@ interface Props {
   score: number;
 }
 
-/**
- * ItemListScore domain element.
- */
-const ItemListScore: React.FC<Props> = (props): React.ReactElement => {
+export function ItemsListScore(props: Props): JSX.Element {
   const { score } = props;
   return <Wrapper>{score}</Wrapper>;
-};
+}
 
 const Wrapper = styled.div`
   grid-row: 1 / 3;
@@ -24,4 +21,3 @@ const Wrapper = styled.div`
   text-align: center;
   line-height: 44px;
 `;
-export default ItemListScore;

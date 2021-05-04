@@ -10,7 +10,7 @@ interface Props {
   type: string | string[];
 }
 
-const ItemsHeader: React.FC<Props> = (props) => {
+export function ItemsHeader(props: Props): JSX.Element {
   const { ids, type, itemsPerPage } = props;
   const router = useRouter();
 
@@ -48,7 +48,7 @@ const ItemsHeader: React.FC<Props> = (props) => {
       </Wrapper>
     );
   }
-};
+}
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -66,5 +66,3 @@ const Wrapper = styled.div`
 const StyledA = styled.a`
   color: #ccc;
 `;
-
-export default ItemsHeader;

@@ -8,10 +8,7 @@ interface Props {
   title: string;
 }
 
-/**
- * ItemListTitle domain element.
- */
-const ItemListTitle: React.FC<Props> = (props): React.ReactElement => {
+export function ItemsListTitle(props: Props): JSX.Element {
   const { url, id, title } = props;
 
   return (
@@ -28,7 +25,7 @@ const ItemListTitle: React.FC<Props> = (props): React.ReactElement => {
       )}
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   grid-row: 1 / 2;
@@ -36,5 +33,3 @@ const Wrapper = styled.div`
   line-height: 32px;
   padding-left: 10px;
 `;
-
-export default ItemListTitle;
