@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from 'next/head';
+import { useRouter } from 'next/router';
 
 import * as Model from '@/common/models';
 import { timeAgo } from '@/common/utils/filter';
 import { Spinner } from '@/common/components/Spinner';
-import Header from 'next/head';
-import { useRouter } from 'next/router';
 
 interface Props {
   user?: Model.User;
