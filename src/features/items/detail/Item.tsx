@@ -2,8 +2,8 @@ import React from 'react';
 import Header from 'next/head';
 import styled from 'styled-components';
 
-import { ItemDetail } from '@/common/components/domain/elements/Item';
-import { Comments } from '@/common/components/domain/objects/Comments';
+import { ItemDetail } from '@/features/items/detail/ItemDetail';
+import { Comments } from '@/features/items/detail/Comments';
 import { Spinner } from '@/common/components/Spinner';
 import * as Model from '@/common/models';
 
@@ -12,10 +12,6 @@ interface Props {
   loading: boolean;
 }
 
-/**
- * Item Domain object
- * @param props
- */
 const Item: React.FC<Props> = (props): React.ReactElement => {
   const { item, loading } = props;
 
@@ -48,4 +44,4 @@ const Wrapper = styled.div`
   padding-right: 3em;
 `;
 
-export default Item;
+export { Item };

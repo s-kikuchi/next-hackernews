@@ -11,7 +11,7 @@ interface Props {
  * @param props
  * @constructor
  */
-const ItemDetail: React.FC<Props> = (props): React.ReactElement => {
+export function ItemDetail(props: Props): React.ReactElement {
   const { title, by, score } = props;
   return (
     <div>
@@ -23,6 +23,4 @@ const ItemDetail: React.FC<Props> = (props): React.ReactElement => {
       </p>
     </div>
   );
-};
-
-export default ItemDetail;
+}

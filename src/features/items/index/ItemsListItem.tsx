@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { List } from '@/common/components/List';
-import { ItemsListScore, ItemsListTitle, ItemsListMeta } from '@/common/components/domain/elements/Items';
 import { ItemsListScore } from '@/features/items/index/ItemsListScore';
+import { ItemsListTitle } from '@/features/items/index/ItemsListTitle';
+import { ItemsListMeta } from '@/features/items/index/ItemsListMeta';
 
 import * as Model from '@/common/models';
 

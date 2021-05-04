@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { UnorderedList } from '@/common/components/List';
-import { ItemsListItem } from '@/common/components/domain/elements/Items';
+import { ItemsListItem } from '@/features/items/index/ItemsListItem';
 import * as Model from '@/common/models';
 import { Spinner } from '@/common/components/Spinner';
 
