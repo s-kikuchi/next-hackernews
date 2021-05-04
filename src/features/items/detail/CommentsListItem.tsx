@@ -11,7 +11,7 @@ interface Props {
   item: Model.Item;
 }
 
-const CommentListItem: React.FC<Props> = (props) => {
+const CommentsListItem: React.FC<Props> = (props) => {
   const { item } = props;
   const items = useRecoilValue(itemsState);
 
@@ -29,7 +29,7 @@ const CommentListItem: React.FC<Props> = (props) => {
         {item.kids && item.kids.length ? (
           <UnorderedList>
             {item.kids.map((kid) => {
-              return <CommentListItem key={kid} item={items[kid]} />;
+              return <CommentsListItem key={kid} item={items[kid]} />;
             })}
           </UnorderedList>
         ) : null}
@@ -44,4 +44,4 @@ const Wrapper = styled.li`
   margin-left: 1.5em;
 `;
 
-export { CommentListItem };
+export { CommentsListItem };
