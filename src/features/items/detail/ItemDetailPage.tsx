@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { MainPageLayout } from '@/common/components/Layout';
+import { DetailPageLayout } from '@/common/components/Layout/DetailPageLayout';
 import { ItemContainer } from '@/features/items/detail/ItemContainer';
 
 export function ItemDetailPage(): JSX.Element {
   return (
-    <MainPageLayout paddingTop={'65px'}>
+    <DetailPageLayout>
       <ItemContainer />
-    </MainPageLayout>
+    </DetailPageLayout>
   );
 }

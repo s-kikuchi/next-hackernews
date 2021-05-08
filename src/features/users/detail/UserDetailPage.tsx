@@ -1,14 +1,14 @@
 import React, { ReactElement } from 'react';
 
-import { MainPageLayout } from '@/common/components/Layout';
+import { DetailPageLayout } from '@/common/components/Layout/DetailPageLayout';
 import { UserContainer } from '@/features/users/detail/UserContainer';
 
 export function UserDetailPage(): ReactElement {
   return (
     <>
-      <MainPageLayout paddingTop={'65px'}>
+      <DetailPageLayout>
         <UserContainer />
-      </MainPageLayout>
+      </DetailPageLayout>
     </>
   );
 }
