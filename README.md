@@ -3,13 +3,13 @@ Hackernews clone build with:
 
 - **<img alt="TypeScript" src="https://user-images.githubusercontent.com/4289883/72760400-7524e080-3b8d-11ea-9b0c-f6e09280e6d8.png" height="16"> [TypeScript](https://www.typescriptlang.org/)**
 - **<img alt="React" src="https://user-images.githubusercontent.com/4289883/72760398-7524e080-3b8d-11ea-95ea-736bd3081ac9.png" height="16"> [React](https://reactjs.org)**
-- **<img alt="Recoil" src="https://user-images.githubusercontent.com/38875367/100594712-62e30980-333d-11eb-9501-25a92bdb6a5f.png" height="16"> [Recoil](https://reactjs.org)**
+- **<img alt="SWR" src="https://user-images.githubusercontent.com/38875367/117539545-27640e00-b046-11eb-9f7b-de941e9276ea.png" height="16"> [SWR](https://swr.vercel.app/)**
 - **<img alt="Next.js" src="https://user-images.githubusercontent.com/4289883/73734536-a4416300-46f2-11ea-94c5-db97d7e9a814.png" height="16"> [Next.js](https://nextjs.org/)**
-- **<img alt="Jest" src="https://user-images.githubusercontent.com/4289883/72760396-748c4a00-3b8d-11ea-9eba-e3df28a3f18a.png" height="16"> [Jest](https://jestjs.io/)**
 - **<img alt="Styled Compnents" src="https://user-images.githubusercontent.com/38875367/100569069-454b7b00-3310-11eb-8227-751b0ca73234.png" height="16"> [Styled Components](https://emotion.sh/)**
 - **<img alt="Storybook" src="https://user-images.githubusercontent.com/4289883/72760399-7524e080-3b8d-11ea-9174-1aa265d9c239.png" height="16"> [Storybook](https://storybook.js.org/)**
 - **<img alt="Prettier" src="https://user-images.githubusercontent.com/38875367/100571106-a4f85500-3315-11eb-94c6-f205212297f6.png" height="16"> [Prettier](https://prettier.io/)**
 - **<img alt="ESLint" src="https://user-images.githubusercontent.com/38875367/100571315-35369a00-3316-11eb-9238-07324deec076.png" height="16"> [ESLint](https://eslint.org/)**
+- **<img alt="Jest" src="https://user-images.githubusercontent.com/4289883/72760396-748c4a00-3b8d-11ea-9eba-e3df28a3f18a.png" height="16"> [Jest](https://jestjs.io/)**
 
 ## Build Setup
 Clone this project, install npm packages, and, start node server.
