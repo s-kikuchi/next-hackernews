@@ -10,30 +10,24 @@ interface Props {
 
 export function Header(props: Props) {
   const { width } = props;
-
   return (
     <Wrapper>
       <Nav>
-        <Link href="/items?type=top">
+        <Link href="/items?type=top&page=1">
           <StyledLink>Top</StyledLink>
         </Link>
-        <Link href="/items?type=new">
+        <Link href="/items?type=new&page=1">
           <StyledLink>New</StyledLink>
         </Link>
-        <Link href="/items?type=show">
+        <Link href="/items?type=show&page=1">
           <StyledLink>Show</StyledLink>
         </Link>
-        <Link href="/items?type=ask">
+        <Link href="/items?type=ask&page=1">
           <StyledLink>Ask</StyledLink>
         </Link>
-        <Link href="/items?type=job">
+        <Link href="/items?type=job&page=1">
           <StyledLink>Job</StyledLink>
         </Link>
-        {width > MOBILE_WINDOW.width ? (
-          <GitHubLink>
-            Git Hub
-          </GitHubLink>
-        ) : null}
       </Nav>
     </Wrapper>
   );
@@ -84,4 +78,4 @@ const GitHubLink = styled.a`
   margin: 0;
   float: right;
   line-height: 24px;
-`
+`;

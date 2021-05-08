@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import { Item } from '@/common/models/Item';
 import { UnorderedList } from '@/common/components/List';
 import { ItemsListItem } from '@/features/items/index/ItemsListItem';
-import * as Model from '@/common/models';
 import { Spinner } from '@/common/components/Spinner';
 
 interface Props {
-  activeItems: Model.Item[] | any;
+  activeItems: Item[] | any;
 }
 
 export function ItemsBody(props: Props): JSX.Element {
@@ -14,17 +15,17 @@ export function ItemsBody(props: Props): JSX.Element {
 
   if (!activeItems.length) {
     return <Spinner />;
-  } else {
-    return (
-      <Wrapper>
-        <UnorderedList>
-          {activeItems.map((activeItem) => {
-            return <ItemsListItem item={activeItem} key={activeItem.id} />;
-          })}
-        </UnorderedList>
-      </Wrapper>
-    );
   }
+
+  return (
+    <Wrapper>
+      <UnorderedList>
+        {activeItems.map((activeItem) => {
+          return <ItemsListItem item={activeItem} key={activeItem.id} />;
+        })}
+      </UnorderedList>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

@@ -7,7 +7,7 @@ interface Props {
   score: number;
 }
 
-export function ItemsListScore(props: Props): JSX.Element {
+export function ItemsListItemScore(props: Props): JSX.Element {
   const { score } = props;
   return <Wrapper>{score}</Wrapper>;
 }

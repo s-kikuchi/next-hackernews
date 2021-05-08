@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import { Spinner } from '@/common/components/Spinner';
 
 interface Props {
@@ -28,26 +29,26 @@ export function ItemsHeader(props: Props): JSX.Element {
         <Spinner />
       </Wrapper>
     );
-  } else {
-    return (
-      <Wrapper>
-        {currentPage() <= 1 ? (
-          <StyledA>&lt; prev</StyledA>
-        ) : (
-          <Link href={`/items?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
-        )}
-        <span>
-          {' '}
-          {currentPage()} / {maxPage()}{' '}
-        </span>
-        {maxPage() === currentPage() ? (
-          <StyledA>more &gt;</StyledA>
-        ) : (
-          <Link href={`/items?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
-        )}
-      </Wrapper>
-    );
   }
+
+  return (
+    <Wrapper>
+      {currentPage() <= 1 ? (
+        <StyledA>&lt; prev</StyledA>
+      ) : (
+        <Link href={`/items?type=${type}&page=${currentPage() - 1}`}>&lt; prev</Link>
+      )}
+      <span>
+        {' '}
+        {currentPage()} / {maxPage()}{' '}
+      </span>
+      {maxPage() === currentPage() ? (
+        <StyledA>more &gt;</StyledA>
+      ) : (
+        <Link href={`/items?type=${type}&page=${currentPage() + 1}`}>more &gt;</Link>
+      )}
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

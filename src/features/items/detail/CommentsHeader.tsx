@@ -5,10 +5,10 @@ interface Props {
   descendants: number;
 }
 
-const CommentsHeader: React.FC<Props> = (props) => {
+export function CommentsHeader(props: Props): JSX.Element {
   const { descendants } = props;
   return <Wrapper>{descendants} comments</Wrapper>;
-};
+}
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -16,5 +16,3 @@ const Wrapper = styled.div`
   margin-bottom: 30px;
   padding: 0;
 `;
-
-export { CommentsHeader };

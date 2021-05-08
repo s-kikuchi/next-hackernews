@@ -1,13 +1,12 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
+
 import { ItemsContainer } from '@/features/items/index/ItemsContainer';
 import { MainPageLayout } from '@/common/components/Layout';
 
-function ItemsIndexPage(): ReactElement {
+export function ItemsIndexPage(): JSX.Element {
   return (
     <MainPageLayout>
       <ItemsContainer />
     </MainPageLayout>
   );
 }
-
-export { ItemsIndexPage };

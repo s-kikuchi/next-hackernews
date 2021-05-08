@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 interface Props {
   url: string | any;
-  id: number;
+  id: string;
   title: string;
 }
 
-export function ItemsListTitle(props: Props): JSX.Element {
+export function ItemsListItemTitle(props: Props): JSX.Element {
   const { url, id, title } = props;
 
   return (

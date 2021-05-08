@@ -8,9 +8,10 @@ export function IndexPage(): React.ReactElement {
     const { pathname } = router;
     (async () => {
       if (pathname === '/') {
-        await router.push('/items/?type=top');
+        await router.push('/items/?type=top&page=1');
       }
     })();
   });
+
   return <Spinner />;
 }

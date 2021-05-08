@@ -6,12 +6,7 @@ interface Props {
   score: number;
 }
 
-/**
- * ItemHeader component for Item domain.
- * @param props
- * @constructor
- */
-export function ItemDetail(props: Props): React.ReactElement {
+export function ItemDetail(props: Props): JSX.Element {
   const { title, by, score } = props;
   return (
     <div>

@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { timeAgo } from '@/common/utils/filter';
 
 interface Props {
-  id: number;
+  id: string;
   by: string;
   time: number;
   descendants: number | undefined;
 }
 
-export function ItemsListMeta(props: Props): React.ReactElement {
+export function ItemsListItemMeta(props: Props): JSX.Element {
   const { id, by, time, descendants } = props;
   return (
     <Wrapper>

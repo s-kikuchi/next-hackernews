@@ -1,13 +1,19 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import Header from 'next/head';
-import { useActiveItems, useIds, useItems } from '@/common/hooks';
-import { ItemsBody, ItemsHeader } from '@/common/components/domain/elements/Items';
+import { useRouter } from 'next/router';
 
-export function ItemsContainer(): ReactElement {
-  const ids = useIds();
-  const { items } = useItems(ids);
-  const { activeItems, itemsPerPage, activeItemType } = useActiveItems(ids, items);
-  const isLoading = !items.length || activeItems.length || !itemsPerPage || !activeItemType;
+import { useItems } from '@/common/hooks/useItems';
+import { ItemsBody } from '@/features/items/index/ItemsBody';
+import { ItemsHeader } from '@/features/items/index/ItemsHeader';
+
+import { ITEMS_PER_PAGE } from '@/common/utils/constants';
+
+export function ItemsContainer(): JSX.Element {
+  const router = useRouter();
+  const { type, page } = router.query;
+
+  const { items, ids } = useItems({ type: type as string, page: page as string });
+  const isLoading: boolean = items && ids.length > 0;
 
   return (
     <>
@@ -16,8 +22,8 @@ export function ItemsContainer(): ReactElement {
       </Header>
       {isLoading && (
         <>
-          <ItemsHeader ids={ids} itemsPerPage={itemsPerPage} type={activeItemType} />
-          <ItemsBody activeItems={activeItems} />
+          <ItemsHeader ids={ids} itemsPerPage={ITEMS_PER_PAGE} type={type} />
+          <ItemsBody activeItems={items} />
         </>
       )}
     </>

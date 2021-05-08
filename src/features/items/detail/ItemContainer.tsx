@@ -1,11 +1,13 @@
-import React, { ReactElement } from 'react';
-import { Item } from '@/common/components/domain/objects/Item';
-import { useItem, useComments } from '@/common/hooks';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-export function ItemContainer(): ReactElement {
-  const item = useItem();
-  // TODO: Look again custom hook ans state structure
-  const commentIsLoading = useComments(item);
+import { Item } from '@/features/items/detail/Item';
+import { useItem } from '@/common/hooks/useItem';
 
-  return <Item item={item} loading={commentIsLoading} />;
+export function ItemContainer(): JSX.Element {
+  const router = useRouter();
+  const { id } = router.query;
+  const { data: item } = useItem(id as string);
+
+  return <Item item={item} />;
 }

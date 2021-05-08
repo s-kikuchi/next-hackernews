@@ -1,30 +1,27 @@
 import React from 'react';
-import { useRecoilValue } from 'recoil';
 
 import { UnorderedList } from '@/common/components/List';
 import { CommentsHeader } from '@/features/items/detail/CommentsHeader';
 import { CommentsListItem } from '@/features/items/detail/CommentsListItem';
-import { itemsState } from '@/common/hooks/useItems';
-import * as Model from '@/common/models';
+import { Item } from '@/common/models/Item';
 
 interface Props {
-  item: Model.Item;
+  item: Item;
 }
 
-const Comments: React.FC<Props> = (props) => {
+export function Comments(props: Props): JSX.Element {
   const { item } = props;
-  const items = useRecoilValue(itemsState);
 
   return (
     <>
       <CommentsHeader descendants={item.descendants} />
       <UnorderedList>
         {item.kids.map((kid: number) => {
-          return <CommentsListItem key={kid} item={items[kid]} />;
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          return <CommentsListItem key={kid} kidId={kid as string} />;
         })}
       </UnorderedList>
     </>
   );
-};
-
-export { Comments };
+}

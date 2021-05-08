@@ -3,21 +3,19 @@ import styled from 'styled-components';
 import Header from 'next/head';
 import { useRouter } from 'next/router';
 
-import * as Model from '@/common/models';
+import { User as ModelUser } from '@/common/models/User';
 import { timeAgo } from '@/common/utils/filter';
 import { Spinner } from '@/common/components/Spinner';
 
 interface Props {
-  user?: Model.User;
+  user?: ModelUser;
   error: Error;
 }
 
-function User(props: Props): JSX.Element {
+export function User(props: Props): JSX.Element {
   const router = useRouter();
   const { user, error } = props;
-  const isLoading = () => {
-    return Boolean(!user);
-  };
+  const isLoading = () => Boolean(!user);
 
   // TODO: outside common error function
   if (error) {
@@ -59,5 +57,3 @@ const Wrapper = styled.div`
   padding-left: 3em;
   padding-right: 3em;
 `;
-
-export default User;

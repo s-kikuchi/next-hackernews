@@ -1,5 +1,5 @@
-interface Item {
-  id: number;
+export interface Item {
+  id: string;
   score: number;
   title: string;
   type: string;
@@ -11,5 +11,3 @@ interface Item {
   kids: number[];
   text: string | any;
 }
-
-export default Item;

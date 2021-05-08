@@ -1,6 +1,6 @@
 import useSWR, { SWRResponse } from 'swr';
 import { fetchUser } from '@/common/api';
-import { User } from '@/common/models';
+import { User } from '@/common/models/User';
 
 export function useUser(id?: string): Pick<SWRResponse<User | undefined, Error>, 'data' | 'error'> {
   const key: string | undefined = id ? JSON.stringify(`/api/users/${id}`) : undefined;

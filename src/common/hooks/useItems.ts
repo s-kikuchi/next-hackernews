@@ -1,86 +1,49 @@
-import * as React from 'react';
-import { useRouter } from 'next/router';
-import { atom, useRecoilState } from 'recoil';
+import useSWR from 'swr';
+import { fetchIdsByType, fetchItems } from '@/common/api';
+import { Item } from '@/common/models/Item';
+import { ITEMS_PER_PAGE } from '@/common/utils/constants';
 
-import { fetchItems } from '@/common/api';
-import * as Model from '@/common/models';
+interface UseItemsRequest {
+  type?: string;
+  page?: string;
+}
 
-export const itemsState = atom({
-  key: 'itemsState',
-  default: [] as Model.Item[],
-});
+interface UseItemsResponse {
+  ids: number[];
+  items: Item[];
+}
 
-const useItems = (ids: number[]) => {
-  const [items, setItems] = useRecoilState(itemsState);
-  const now = new Date();
+export function useItems({ type, page }: UseItemsRequest): UseItemsResponse {
+  const itemIdsKey: string | undefined = type ? JSON.stringify(`/api/ids/type=${type}`) : undefined;
+  const itemIdsFetcher = async () => fetchIdsByType(type).then((ids: number[]) => ids);
+  const { data: itemIdsData } = useSWR(itemIdsKey, itemIdsFetcher);
 
-  React.useEffect(() => {
-    if (!ids || !ids.length) {
-      return;
-    }
+  const { activeIds } = extractActiveIds({ ids: itemIdsData, page });
+  const itemsKey: string | undefined = activeIds
+    ? JSON.stringify(`/api/items/type=${type}?page=${page}`)
+    : undefined;
 
-    ids = ids.filter((id) => {
-      const item = items[id];
-      if (!item) return true;
-      // @ts-ignore
-      return now - item.__lastUpdated > 1000 * 60 * 3;
-    });
-    if (ids.length) {
-      fetchItems(ids).then((item) => {
-        const obj = {};
-        item.forEach((item) => {
-          obj[item['id']] = item;
-        });
-        setItems((prevState) => ({ ...prevState, ...obj }));
-      });
-    }
-  }, [ids]);
+  const itemsFetcher = async () => fetchItems(activeIds).then((items: Item[]) => items);
+  const { data: itemsData } = useSWR(itemsKey, itemsFetcher);
 
-  return { items };
-};
+  return {
+    items: itemsData,
+    ids: itemIdsData,
+  };
+}
 
-export const activeItemsState = atom({
-  key: 'activeItemsState',
-  default: {
-    activeItems: [] as Model.Item[],
-    itemsPerPage: 20 as number,
-    activeItemType: null as null | string,
-  },
-});
+interface ExtractActiveIdsRequest {
+  ids: number[];
+  page?: string;
+}
 
-const useActiveItems = (ids: number[], items: {}) => {
-  const router = useRouter();
-  const { type } = router.query;
+interface ExtractActiveIdsResponse {
+  activeIds?: number[];
+}
 
-  const [{ activeItems, itemsPerPage, activeItemType }, setActiveItemsState] = useRecoilState(
-    activeItemsState,
-  );
-
-  React.useEffect(() => {
-    if (!ids || !ids.length || !items) {
-      return;
-    }
-
-    if (router.asPath !== router.route) {
-      let page;
-      try {
-        page = router.query.page || 1;
-      } catch (e) {
-        console.log(e);
-      }
-      const start = (page - 1) * itemsPerPage;
-      const end = page * itemsPerPage;
-
-      const activeIds = ids.slice(start, end);
-      const newActiveItems = activeIds.map((id) => items[id]).filter((_) => _);
-      // @ts-ignore
-      setActiveItemsState((prevState) => ({
-        ...prevState,
-        activeItems: [...newActiveItems],
-        activeItemType: type,
-      }));
-    }
-  }, [router, ids, items]);
-  return { activeItems, itemsPerPage, activeItemType };
-};
-export { useItems, useActiveItems };
+function extractActiveIds({ ids, page }: ExtractActiveIdsRequest): ExtractActiveIdsResponse {
+  const _page = Number(page);
+  const start = page ? (_page - 1) * ITEMS_PER_PAGE : ITEMS_PER_PAGE;
+  const end = page ? _page * ITEMS_PER_PAGE : ITEMS_PER_PAGE;
+  return { activeIds: ids ? ids.slice(start, end) : undefined };
+}
