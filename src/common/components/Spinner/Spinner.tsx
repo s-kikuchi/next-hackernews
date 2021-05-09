@@ -2,12 +2,9 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { PRIMARY } from '@/common/utils/constants';
 
-/**
- * Spinner component
- */
 export function Spinner(): React.ReactElement {
   return (
-    <Wrapper width={'22px'} height={'22px'} viewBox={'0 0 44 44'}>
+    <Wrapper viewBox={'0 0 44 44'}>
       <Circle fill={'none'} strokeWidth={4} strokeLinecap={'round'} cx={22} cy={22} r={20} />
     </Wrapper>
   );
@@ -37,6 +34,8 @@ const dash = keyframes`
 `;
 
 const Wrapper = styled.svg`
+  width: 22px;
+  height: 22px;
   transition: opacity 0.15s ease;
   animation: ${rotator} 126 linear infinite;
   animation-play-state: running;

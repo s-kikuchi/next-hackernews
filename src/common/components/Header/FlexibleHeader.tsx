@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from '@/common/components/Header/index';
+import { Header } from '@/common/components/Header/Header';
 import { useWindowDimensions } from '@/common/hooks/useWindowDimensions';
 
 export function FlexibleHeader(): React.ReactElement {

@@ -5,9 +5,6 @@ interface Props {
   children?: React.ReactNode;
 }
 
-/**
- * List component
- */
 export function List({ children, ...props }: Props): React.ReactElement {
   return <Wrapper {...props}>{children}</Wrapper>;
 }

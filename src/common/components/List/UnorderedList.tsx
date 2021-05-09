@@ -12,13 +12,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-/**
- * UnorderedList
- * @listStyleType { default: none }
- * @padding { default: 0 }
- * @margin { default: 0 }
- */
-export function UnorderedList(props): React.ReactElement {
+export function UnorderedList(props: Props): JSX.Element {
   const { listStyleType, padding, margin, children } = props;
 
   return <Wrapper {...{ listStyleType, padding, margin }}>{children}</Wrapper>;

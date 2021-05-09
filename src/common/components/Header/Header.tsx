@@ -2,14 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { PRIMARY, TABLET_MEDIA, MOBILE_MEDIA, MOBILE_WINDOW } from '@/common/utils/constants';
+import { PRIMARY, TABLET_MEDIA, MOBILE_MEDIA } from '@/common/utils/constants';
 
 interface Props {
   width: number;
 }
 
-export function Header(props: Props) {
-  const { width } = props;
+export function Header(props: Props): JSX.Element {
   return (
     <Wrapper>
       <Nav>
