@@ -1,4 +1,5 @@
 # next-hackernews
+
 Hackernews clone build with:
 
 - **<img alt="TypeScript" src="https://user-images.githubusercontent.com/4289883/72760400-7524e080-3b8d-11ea-9b0c-f6e09280e6d8.png" height="16"> [TypeScript](https://www.typescriptlang.org/)**
@@ -12,6 +13,7 @@ Hackernews clone build with:
 - **<img alt="Jest" src="https://user-images.githubusercontent.com/4289883/72760396-748c4a00-3b8d-11ea-9eba-e3df28a3f18a.png" height="16"> [Jest](https://jestjs.io/)**
 
 ## Build Setup
+
 Clone this project, install npm packages, and, start node server.
 
 ```
@@ -24,43 +26,48 @@ npm run dev
 Go to `http://localhost:3000`
 
 ## Directory structure
+
 This project follows [Presentational + container components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) and [Clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-| Directory | Inside |
-| :--- | :--- |
-| `common/` | UI components, functions, or configs that use commonly |
+| Directory   | Inside                                                   |
+| :---------- | :------------------------------------------------------- |
+| `common/`   | UI components, functions, or configs that use commonly   |
 | `features/` | Directories have domain components, functions, utilities |
-| `pages/` | Nextjs page routing |
+| `pages/`    | Nextjs page routing                                      |
 
 ### common
+
 In side `common` directory, there are `api`, `components`, `hooks`, and `utils` directories.
 
-| Directory | Inside |
-| :--- | :--- |
-| `api/` | Functions and types for fetching data from backend |
-| `components/` |  Re-useful UI components |
-| `hooks/` | Custom hooks |
-| `utils/` | Utility functions that don't have effect and constants |
+| Directory     | Inside                                                 |
+| :------------ | :----------------------------------------------------- |
+| `api/`        | Functions and types for fetching data from backend     |
+| `components/` | Re-useful UI components                                |
+| `hooks/`      | Custom hooks                                           |
+| `utils/`      | Utility functions that don't have effect and constants |
 
 ## Test
+
 Tests are inside directory that related to.
 
 ### Test direction
 
 In this project, execute testing in the following 3 phases of tests.
+
 - Unit
 - Integration
 - E2E
 
 Moreover, these are the features of tests in each phase.
- 
-| Test | Isolated / Integrated | Environment | Data Source |
-| :--- | :--- | :--- | :--- |
-| Unit | Isolated | Virtual DOM (Node) | Mock (Local) |
-| Integration | Integrated | Virtual DOM (Node) | Mock (Local) |
-| E2E | Integrated | Real DOM (Browser) | Response (API) |
 
-## Storybook 
+| Test        | Isolated / Integrated | Environment        | Data Source    |
+| :---------- | :-------------------- | :----------------- | :------------- |
+| Unit        | Isolated              | Virtual DOM (Node) | Mock (Local)   |
+| Integration | Integrated            | Virtual DOM (Node) | Mock (Local)   |
+| E2E         | Integrated            | Real DOM (Browser) | Response (API) |
+
+## Storybook
+
 ```
 npm run storybook
 ```
@@ -68,4 +75,5 @@ npm run storybook
 Go to `http://localhost:6006`
 
 ## Branch management
+
 Create a new branch that follows [GitHub flow](https://githubflow.github.io/).
