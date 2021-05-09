@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettier:quick": "pretty-quick --staged",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx",
     "lint:fix": "eslint . --ext ts --ext tsx --fix",
@@ -69,7 +68,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
+      "npm run lint:fix",
+      "npm run format",
       "git add"
     ]
   }
