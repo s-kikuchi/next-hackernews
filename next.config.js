@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   webpack(config, options) {
@@ -6,4 +6,4 @@ module.exports = {
     config.resolve.alias['@@'] = __dirname;
     return config;
   },
-}
+};

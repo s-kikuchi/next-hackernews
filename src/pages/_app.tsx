@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import '@@/styles/globals.css';
+import '@/styles/globals.css';
 
 import { FlexibleHeader } from '@/common/components/Header/FlexibleHeader';
 
