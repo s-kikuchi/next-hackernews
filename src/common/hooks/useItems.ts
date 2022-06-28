@@ -14,7 +14,9 @@ interface UseItemsResponse {
 }
 
 export function useItems({ type, page }: UseItemsRequest): UseItemsResponse {
-  const itemIdsKey: string | undefined = type ? JSON.stringify(`/api/ids/type=${type}`) : undefined;
+  const itemIdsKey: string | undefined = type
+    ? JSON.stringify(`/api/items/ids/type=${type}`)
+    : undefined;
   const itemIdsFetcher = async () => fetchIdsByType(type).then((ids: number[]) => ids);
   const { data: itemIdsData } = useSWR(itemIdsKey, itemIdsFetcher);
 

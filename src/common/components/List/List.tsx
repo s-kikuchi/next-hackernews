@@ -18,3 +18,4 @@ const Wrapper = styled.li`
   grid-template-rows: 32px 12px;
   grid-template-columns: 80px 1fr;
 `;
+
